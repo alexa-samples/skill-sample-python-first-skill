@@ -1,0 +1,123 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "cake walk",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "CaptureBirthdayIntent",
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.Month"
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.Ordinal"
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER"
+						}
+					],
+					"samples": [
+						"{month} {day}",
+						"{month} {day} {year}",
+						"{month} {year}",
+						"I was born on {month} {day} ",
+						"I was born on {month} {day} {year}",
+						"I was born on {month} {year}"
+					]
+				}
+			],
+			"types": []
+		},
+		"dialog": {
+			"intents": [
+				{
+					"name": "CaptureBirthdayIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.Month",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.795077103633"
+							}
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.Ordinal",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.985837334781"
+							}
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.27341833344"
+							}
+						}
+					]
+				}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Elicit.Slot.303899476312.795077103633",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I was born in November. When what were you born?"
+					},
+					{
+						"type": "PlainText",
+						"value": "What month were you born?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.985837334781",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I was born on the sixth. What day were you born?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.27341833344",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "I was born in two thousand fifteen, what year were you born?"
+					}
+				]
+			}
+		]
+	}
+}
