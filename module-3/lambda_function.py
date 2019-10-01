@@ -8,16 +8,19 @@
 
 import logging
 
-from ask_sdk.standard import StandardSkillBuilder
+from ask_sdk_s3.adapter import S3Adapter
+from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import (
     AbstractRequestHandler, AbstractExceptionHandler
 )
 from ask_sdk_core.utils import is_request_type, is_intent_name
 
-sb = StandardSkillBuilder(table_name="cake-walk-example", auto_create_table=True)
+s3_adapter = S3Adapter(bucket_name="S3-BUCKET-NAME")
+sb = CustomSkillBuilder(persistence_adapter=s3_adapter)
 
 logger = logging.getLogger("main")
 logger.setLevel(logging.INFO)
+
 
 class LaunchRequestIntentHandler(AbstractRequestHandler):
     """

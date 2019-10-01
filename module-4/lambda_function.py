@@ -9,21 +9,17 @@
 import requests
 import logging
 import calendar
-import boto3
-import os
 from datetime import datetime
 from pytz import timezone
-from ask_sdk_s3.adapter import S3Adapter
 
+from ask_sdk_s3.adapter import S3Adapter
 from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import (
     AbstractRequestHandler, AbstractExceptionHandler
 )
 from ask_sdk_core.utils import is_request_type, is_intent_name
 
-bucket_name = os.environ.get('S3_PERSISTENCE_BUCKET')
-s3_client = boto3.client('s3', config=boto3.session.Config(signature_version='s3v4',s3={'addressing_style': 'path'}))
-s3_adapter = S3Adapter(bucket_name=bucket_name, path_prefix="Media", s3_client=s3_client)
+s3_adapter = S3Adapter(bucket_name="custom-walk-testing")
 sb = CustomSkillBuilder(persistence_adapter=s3_adapter)
 
 logger = logging.getLogger("main")
@@ -53,10 +49,12 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         # extract persistent attributes and check if they are all present
         attr = handler_input.attributes_manager.persistent_attributes
         attributes_are_present = ("year" in attr and "month" in attr and "day" in attr)
+
         return attributes_are_present and is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
         attr = handler_input.attributes_manager.persistent_attributes
+
         year = int(attr['year'])
         month = attr['month'] # month is a string, and we need to convert it to a month index later
         day = int(attr['day'])
@@ -91,13 +89,13 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         current_year = now_time.year
 
         # getting the next birthday
-        month_as_index = [x.lower() for x in list(calendar.month_abbr)].index(month.lower()[:3])
+        month_as_index = list(calendar.month_abbr).index(month[:3])
         next_birthday = datetime(current_year, month_as_index, day)
 
         # check if we need to adjust bday by one year
         if now_date > next_birthday:    
             next_birthday = datetime(
-                year + 1,
+                current_year + 1,
                 month_as_index,
                 day
             )
@@ -128,6 +126,7 @@ class BirthdayIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         slots = handler_input.request_envelope.request.intent.slots
+
         # extract slot values
         year = slots["year"].value
         month = slots["month"].value
@@ -178,6 +177,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         speak_output = "Sorry, I couldn't understand what you said. Please try again."
         handler_input.response_builder.speak(speak_output).ask(speak_output)
         return handler_input.response_builder.response
+
 
 class CancelAndStopIntentHandler(AbstractRequestHandler):
     """

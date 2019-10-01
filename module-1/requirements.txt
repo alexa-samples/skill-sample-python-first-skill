@@ -1,2 +1,1 @@
 ask-sdk-core
-ask-sdk

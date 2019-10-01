@@ -1,2 +1,2 @@
 ask-sdk-core
-ask-sdk
+ask-sdk-s3-persistence-adapter
