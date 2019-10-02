@@ -1,0 +1,73 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2019-10-02 17:11-0400\n"
+"PO-Revision-Date: 2019-10-02 18:18-0400\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+"X-Generator: Poedit 2.2.4\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr_FR\n"
+
+#: alexa\data.py:3
+msgid "Hello! Welcome to Cake walk. What is your birthday?"
+msgstr ""
+"Bonjour! Bienvenue sur le Génie des Anniversaires. Quelle est votre date de "
+"naissance ?"
+
+#: alexa\data.py:4
+msgid "I was born Nov. 6th, 2014. When were you born?"
+msgstr ""
+"Bonjour! Bienvenue sur le Génie des Anniversaires. Quelle est votre date de "
+"naissance ?"
+
+#: alexa\data.py:5
+msgid "Welcome back. It looks like there is {} day until your {}th birthday."
+msgstr "Content de vous revoir! Il vous reste {} jour avant d'avoir {} ans."
+
+#: alexa\data.py:7
+msgid "Welcome back. It looks like there are {} days until your {}th birthday"
+msgstr "Content de vous revoir! Il vous reste {} jours avant d'avoir {} ans."
+
+#: alexa\data.py:9
+msgid "Happy {}th birthday!"
+msgstr "Joyeux Anniversaire! Aujourd'hui, vous avez {} an!"
+
+#: alexa\data.py:10
+msgid "Thanks, I'll remember that you were born {} {} {}"
+msgstr "Merci, je vais me rappeler que vous êtes né le {} {} {}."
+
+#: alexa\data.py:11
+msgid ""
+"You can tell me your date of birth and I'll take note. You can also just "
+"say, 'register my birthday' and I will guide you. Which one would you like "
+"to try?"
+msgstr ""
+"Je peux me souvenir de votre date de naissance. Dites-moi votre jour, mois "
+"et année de naissance ou bien dites-moi simplement \"enregistre mon "
+"anniversaire\" et je vous guiderai. Quel est votre choix ?"
+
+#: alexa\data.py:12
+msgid "Goodbye!"
+msgstr "Au revoir!"
+
+#: alexa\data.py:13
+msgid "Sorry, I couldn't understand what you said. Can you reformulate?"
+msgstr "Désolé, je n'ai pas compris. Pouvez-vous reformuler ?"
+
+#: alexa\data.py:15
+msgid ""
+"I can't determine your timezone. Please check your device settings and make "
+"sure a timezone was selected. After that please reopen the skill and try "
+"again!"
+msgstr ""
+"Je n'ai pas réussi à déterminer votre fuseau horaire. Veuillez vérifier les "
+"paramètres de votre appareil et réessayez."
