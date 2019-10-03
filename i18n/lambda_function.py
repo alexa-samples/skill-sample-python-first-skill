@@ -268,7 +268,7 @@ sb.add_request_handler(SessionEndedRequestHandler())
 # register exception handlers
 sb.add_exception_handler(CatchAllExceptionHandler())
 
-# register localization interceptor and cache interceptor
+# register localization interceptor and cache speech interceptor
 sb.add_global_request_interceptor(LocalizationInterceptor())
 sb.add_global_response_interceptor(CacheSpeechForRepeatInterceptor())
 
