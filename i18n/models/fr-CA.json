@@ -1,0 +1,162 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "le génie des fêtes",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "CaptureBirthdayIntent",
+					"slots": [
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"{day}",
+								"le {day}",
+								"le {day} {month}",
+								"le {day} {month} {year}",
+								"je suis né le {day} {month}",
+								"je suis né le {day} {month} {year}"
+							]
+						},
+						{
+							"name": "month",
+							"type": "AMAZON.Month",
+							"samples": [
+								"mon mois de naissance est {month}",
+								"je suis né le mois de {month}",
+								"{month}",
+								"en {month}"
+							]
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.NUMBER",
+							"samples": [
+								"je suis né en {year}",
+								"mon année de naissance est {year}",
+								"en {year}",
+								"l'année {year}",
+								"l'an {year}",
+								"{year}"
+							]
+						}
+					],
+					"samples": [
+						"le {day} {month} {year}",
+						"le {day} {month}",
+						"le {day} du mois de {month}",
+						"le {day} du mois d' {month}",
+						"le {day} {month} de l'année {year}",
+						"sauve ma date de naissance",
+						"sauver ma date de naissance",
+						"sauver ma fête",
+						"sauve ma fête",
+						"enregistre ma date de naissance",
+						"enregistre ma fête",
+						"enregistrer ma date de naissance",
+						"enregistrer ma fête",
+						"ma fête est le {day} {month} {year}",
+						"ma fête est le {day} {month}",
+						"ma date de naissance est le {day} {month} {year}",
+						"ma date de naissance est le {day} {month}",
+						"je suis né un {day} {month} {year}",
+						"je suis né un {day} {month} ",
+						"je suis né le {day} {month} {year}",
+						"je suis né le {day} {month}",
+						"je suis né en {month} {year}",
+						"je suis né en {year}"
+					]
+				}
+			],
+			"types": []
+		},
+		"dialog": {
+			"intents": [
+				{
+					"name": "CaptureBirthdayIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.985837334781"
+							}
+						},
+						{
+							"name": "month",
+							"type": "AMAZON.Month",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.795077103633"
+							}
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.27341833344"
+							}
+						}
+					]
+				}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Elicit.Slot.303899476312.795077103633",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Je suis née en Novembre. Et vous, quel mois êtes-vous né ?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Quel est votre mois de naissance ?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.985837334781",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Quel jour êtes-vous né ?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.27341833344",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Je suis née en 2014. Et vous, quelle est votre année de naissance ?"
+					}
+				]
+			}
+		]
+	}
+}
