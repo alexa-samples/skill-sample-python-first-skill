@@ -1,7 +1,7 @@
 {
 	"interactionModel": {
 		"languageModel": {
-			"invocationName": "cake walk",
+			"invocationName": "ケークウォーク",
 			"intents": [
 				{
 					"name": "AMAZON.CancelIntent",
@@ -24,24 +24,24 @@
 					"slots": [
 						{
 							"name": "month",
-							"type": "AMAZON.Month"
-						},
-						{
-							"name": "day",
-							"type": "AMAZON.Ordinal"
+							"type": "AMAZON.NUMBER"
 						},
 						{
 							"name": "year",
 							"type": "AMAZON.FOUR_DIGIT_NUMBER"
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER"
 						}
 					],
 					"samples": [
-						"{month} {day}",
-						"{month} {day} {year}",
-						"{month} {year}",
-						"I was born on {month} {day} ",
-						"I was born on {month} {day} {year}",
-						"I was born on {month} {year}"
+						"{month} 月 {day} 日",
+						"{year} 年 {month} 月 {day} 日",
+						"{year} 年 {month} 月",
+						"私は {month} 月 {day} 日に生まれました",
+						"私は {year} 年 {month} 月に生まれました",
+						"私は {year} 年 {month} 月 {day} 日に生まれました"
 					]
 				}
 			],
@@ -56,20 +56,11 @@
 					"slots": [
 						{
 							"name": "month",
-							"type": "AMAZON.Month",
+							"type": "AMAZON.NUMBER",
 							"confirmationRequired": false,
 							"elicitationRequired": true,
 							"prompts": {
-								"elicitation": "Elicit.Slot.303899476312.795077103633"
-							}
-						},
-						{
-							"name": "day",
-							"type": "AMAZON.Ordinal",
-							"confirmationRequired": false,
-							"elicitationRequired": true,
-							"prompts": {
-								"elicitation": "Elicit.Slot.303899476312.985837334781"
+								"elicitation": "Elicit.Slot.14711719886.1482199472435"
 							}
 						},
 						{
@@ -78,7 +69,16 @@
 							"confirmationRequired": false,
 							"elicitationRequired": true,
 							"prompts": {
-								"elicitation": "Elicit.Slot.303899476312.27341833344"
+								"elicitation": "Elicit.Slot.14711719886.451582299768"
+							}
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.14711719886.1502672692542"
 							}
 						}
 					]
@@ -88,33 +88,29 @@
 		},
 		"prompts": [
 			{
-				"id": "Elicit.Slot.303899476312.795077103633",
+				"id": "Elicit.Slot.14711719886.1482199472435",
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I was born in November. When what were you born?"
-					},
-					{
-						"type": "PlainText",
-						"value": "What month were you born?"
+						"value": "何月生まれですか？"
 					}
 				]
 			},
 			{
-				"id": "Elicit.Slot.303899476312.985837334781",
+				"id": "Elicit.Slot.14711719886.451582299768",
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I was born on the sixth. What day were you born?"
+						"value": "何年生まれですか？"
 					}
 				]
 			},
 			{
-				"id": "Elicit.Slot.303899476312.27341833344",
+				"id": "Elicit.Slot.14711719886.1502672692542",
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I was born in two thousand fourteen, what year were you born?"
+						"value": "何日生まれですか？"
 					}
 				]
 			}

@@ -1,0 +1,42 @@
+{
+	"manifest": {
+		"publishingInformation": {
+			"locales": {
+				"en-US": {
+					"name": "Cake Walk"
+				},
+				"fr-FR": {
+					"name": "Joyeux Anniversaire"
+				},
+				"fr-CA": {
+					"name": "Bonne Fête"
+				},
+				"it-IT": {
+					"name": "Buon Compleanno"
+				},
+				"ja-JP": {
+					"name": "ケークウォーク"
+				},
+				"en-IN": {
+					"name": "cake walk"
+				},
+				"hi-IN": {
+					"name": "cake walk"
+				}
+			},
+			"isAvailableWorldwide": true,
+			"testingInstructions": "Sample Testing Instructions.",
+			"category": "EDUCATION_AND_REFERENCE",
+			"distributionCountries": []
+		},
+		"apis": {
+			"custom": {
+				"endpoint": {
+					"sourceDir": "lambda",
+					"uri": "ask-custom-cake-walk"
+				}
+			}
+		},
+		"manifestVersion": "1.0"
+	}
+}

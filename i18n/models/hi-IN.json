@@ -24,11 +24,11 @@
 					"slots": [
 						{
 							"name": "month",
-							"type": "AMAZON.Month"
+							"type": "AMAZON.NUMBER"
 						},
 						{
 							"name": "day",
-							"type": "AMAZON.Ordinal"
+							"type": "AMAZON.NUMBER"
 						},
 						{
 							"name": "year",
@@ -39,9 +39,14 @@
 						"{month} {day}",
 						"{month} {day} {year}",
 						"{month} {year}",
-						"I was born on {month} {day} ",
-						"I was born on {month} {day} {year}",
-						"I was born on {month} {year}"
+						"मेरा जन्मदिन {month} {day} मैं था ",
+						"मेरा जन्मदिन {month} {day} {year} था ",
+						"मेरा जन्मदिन {month} {year} था ",
+						"register my birthday",
+						"जनमदिन register कर दो",
+						"जनमदिन register करो",
+						"जन्मदिन register कर दो",
+						"जन्मदिन register करो"
 					]
 				}
 			],
@@ -56,7 +61,7 @@
 					"slots": [
 						{
 							"name": "month",
-							"type": "AMAZON.Month",
+							"type": "AMAZON.NUMBER",
 							"confirmationRequired": false,
 							"elicitationRequired": true,
 							"prompts": {
@@ -65,7 +70,7 @@
 						},
 						{
 							"name": "day",
-							"type": "AMAZON.Ordinal",
+							"type": "AMAZON.NUMBER",
 							"confirmationRequired": false,
 							"elicitationRequired": true,
 							"prompts": {
@@ -92,11 +97,11 @@
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I was born in November. When what were you born?"
+						"value": "मेरा जन्म नवंबर में हुआ था. आपका जन्मदिन कब हैं?"
 					},
 					{
 						"type": "PlainText",
-						"value": "What month were you born?"
+						"value": "किस महीना में आपका जन्म हुआ था."
 					}
 				]
 			},
@@ -105,7 +110,7 @@
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I was born on the sixth. What day were you born?"
+						"value": "मेरा जन्म छठे पर हुआ था. आप किस दिन पैदा हुए थे?"
 					}
 				]
 			},
@@ -114,7 +119,7 @@
 				"variations": [
 					{
 						"type": "PlainText",
-						"value": "I was born in two thousand fourteen, what year were you born?"
+						"value": "मेरा जन्म 2014 में हुआ था, आप किस वर्ष पैदा हुए थे?"
 					}
 				]
 			}
