@@ -1,0 +1,128 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "cake walk",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "CaptureBirthdayIntent",
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.NUMBER"
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER"
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER"
+						}
+					],
+					"samples": [
+						"{month} {day}",
+						"{month} {day} {year}",
+						"{month} {year}",
+						"मेरा जन्मदिन {month} {day} मैं था ",
+						"मेरा जन्मदिन {month} {day} {year} था ",
+						"मेरा जन्मदिन {month} {year} था ",
+						"register my birthday",
+						"जनमदिन register कर दो",
+						"जनमदिन register करो",
+						"जन्मदिन register कर दो",
+						"जन्मदिन register करो"
+					]
+				}
+			],
+			"types": []
+		},
+		"dialog": {
+			"intents": [
+				{
+					"name": "CaptureBirthdayIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.795077103633"
+							}
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.985837334781"
+							}
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.27341833344"
+							}
+						}
+					]
+				}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Elicit.Slot.303899476312.795077103633",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "मेरा जन्म नवंबर में हुआ था. आपका जन्मदिन कब हैं?"
+					},
+					{
+						"type": "PlainText",
+						"value": "किस महीना में आपका जन्म हुआ था."
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.985837334781",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "मेरा जन्म छठे पर हुआ था. आप किस दिन पैदा हुए थे?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.27341833344",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "मेरा जन्म 2014 में हुआ था, आप किस वर्ष पैदा हुए थे?"
+					}
+				]
+			}
+		]
+	}
+}

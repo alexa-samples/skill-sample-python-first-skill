@@ -1,0 +1,119 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "ケークウォーク",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "CaptureBirthdayIntent",
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.NUMBER"
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER"
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER"
+						}
+					],
+					"samples": [
+						"{month} 月 {day} 日",
+						"{year} 年 {month} 月 {day} 日",
+						"{year} 年 {month} 月",
+						"私は {month} 月 {day} 日に生まれました",
+						"私は {year} 年 {month} 月に生まれました",
+						"私は {year} 年 {month} 月 {day} 日に生まれました"
+					]
+				}
+			],
+			"types": []
+		},
+		"dialog": {
+			"intents": [
+				{
+					"name": "CaptureBirthdayIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.14711719886.1482199472435"
+							}
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.14711719886.451582299768"
+							}
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.14711719886.1502672692542"
+							}
+						}
+					]
+				}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Elicit.Slot.14711719886.1482199472435",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "何月生まれですか？"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.14711719886.451582299768",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "何年生まれですか？"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.14711719886.1502672692542",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "何日生まれですか？"
+					}
+				]
+			}
+		]
+	}
+}

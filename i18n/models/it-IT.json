@@ -1,0 +1,136 @@
+{
+	"interactionModel": {
+		"languageModel": {
+			"invocationName": "buon compleanno",
+			"intents": [
+				{
+					"name": "AMAZON.CancelIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.HelpIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.StopIntent",
+					"samples": []
+				},
+				{
+					"name": "AMAZON.NavigateHomeIntent",
+					"samples": []
+				},
+				{
+					"name": "CaptureBirthdayIntent",
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.Month"
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.Ordinal"
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER"
+						}
+					],
+					"samples": [
+						"{month} del {year}",
+						"{day} di {month}",
+						"l'anno {year}",
+						"nel {year}",
+						"sono nato nel {year}",
+						"nacqui nel {year}",
+						"il {day} di {month}",
+						"nel giorno {day} di {month}",
+						"la mia data di nascita è il {day} di {month} del {year}",
+						"la mia data di nascita è il {day} {month} {year}",
+						"sono nato il {day} {month} {year}",
+						"il mio compleanno è il {day} {month} {year}",
+						"ricorda il mio compleanno",
+						"registra il mio compleanno",
+						"registra la mia data di nascita",
+						"ricordati il mio compleanno",
+						"segnati il mio comple",
+						"prendi nota del mio comple",
+						"prendi nota del mio compleanno"
+					]
+				}
+			],
+			"types": []
+		},
+		"dialog": {
+			"intents": [
+				{
+					"name": "CaptureBirthdayIntent",
+					"confirmationRequired": false,
+					"prompts": {},
+					"slots": [
+						{
+							"name": "month",
+							"type": "AMAZON.Month",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.795077103633"
+							}
+						},
+						{
+							"name": "day",
+							"type": "AMAZON.Ordinal",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.985837334781"
+							}
+						},
+						{
+							"name": "year",
+							"type": "AMAZON.FOUR_DIGIT_NUMBER",
+							"confirmationRequired": false,
+							"elicitationRequired": true,
+							"prompts": {
+								"elicitation": "Elicit.Slot.303899476312.27341833344"
+							}
+						}
+					]
+				}
+			],
+			"delegationStrategy": "ALWAYS"
+		},
+		"prompts": [
+			{
+				"id": "Elicit.Slot.303899476312.795077103633",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Io sono nata il mese di novembre. E tu?"
+					},
+					{
+						"type": "PlainText",
+						"value": "Quale è il tuo mese di nascita?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.985837334781",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sono nata il 6. Che giorno del mese è il tuo compleanno?"
+					}
+				]
+			},
+			{
+				"id": "Elicit.Slot.303899476312.27341833344",
+				"variations": [
+					{
+						"type": "PlainText",
+						"value": "Sono nata nel due mila quattordici, tu in che anno?"
+					}
+				]
+			}
+		]
+	}
+}

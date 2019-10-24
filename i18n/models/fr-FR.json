@@ -24,7 +24,7 @@
 					"slots": [
 						{
 							"name": "day",
-							"type": "AMAZON.NUMBER",
+							"type": "AMAZON.Ordinal",
 							"samples": [
 								"{day}",
 								"le {day}",
@@ -46,7 +46,7 @@
 						},
 						{
 							"name": "year",
-							"type": "AMAZON.NUMBER",
+							"type": "AMAZON.Ordinal",
 							"samples": [
 								"je suis né en {year}",
 								"mon année de naissance est {year}",
@@ -91,7 +91,7 @@
 					"slots": [
 						{
 							"name": "day",
-							"type": "AMAZON.NUMBER",
+							"type": "AMAZON.Ordinal",
 							"confirmationRequired": false,
 							"elicitationRequired": true,
 							"prompts": {
@@ -109,7 +109,7 @@
 						},
 						{
 							"name": "year",
-							"type": "AMAZON.NUMBER",
+							"type": "AMAZON.Ordinal",
 							"confirmationRequired": false,
 							"elicitationRequired": true,
 							"prompts": {
