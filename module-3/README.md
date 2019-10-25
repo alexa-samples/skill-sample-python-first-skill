@@ -1,5 +1,3 @@
-# Module 5
-
 ## Adding memory to your skill
 In this section, you will enable the Cake Walk skill to remember the user’s birthday. What’s the point of the skill collecting information if the skill won’t remember it?
 
@@ -20,9 +18,7 @@ Start by using the AttributesManager to save the user’s birthday in Cake Walk.
 
 **b.** Double-click the**requirements.txt** file in the pane on the left. The file opens in the editor.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-1c.png)
-
-[TODO: Replace with Python Screenshot]
+![](http://alexa-github.s3.amazonaws.com/python-requirements-1.png)
 
 **c.** You are going to add a **requirement**. It’s easiest to put a new dependency at the bottom of the existing list.
 
@@ -39,7 +35,8 @@ boto3==1.9.216
 ask-sdk-core==1.11.0
 ask-sdk-s3-persistence-adapter
 ```
-[TODO: Add Python Screenshot for final requirements.txt]
+
+![](http://alexa-github.s3.amazonaws.com/python-requirements-2.png)
 
 **e.** Click **Save**.
 

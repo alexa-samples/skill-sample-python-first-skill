@@ -1,6 +1,4 @@
-# Module 6
-
-# Using the Alexa Settings API
+## Using the Alexa Settings API
 In this section, you will enable the Cake Walk skill to calculate the number of days until the user’s next birthday.
 Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Walk skill.
 

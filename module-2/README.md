@@ -1,5 +1,3 @@
-# Module 4
-
 ## Collecting slots turn-by-turn with auto-delegation
 In the previous section, you built an Alexa skill that says, “Hello! Welcome to Cake Walk. That was a piece of cake! Bye!” In this section, you will make the skill more useful by having it ask the user for their birthday. When the user responds, the skill will understand and repeat the user’s birthday back to them.
 
@@ -15,11 +13,9 @@ Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/as
 ## Step 1: Ask the user for their birthday
 At the moment, the skill simply greets the user and exits. The welcome message helps set the context of the interaction—the user knows they are interacting with Cake Walk. Now you need to capture the user’s birthday to eventually calculate the number of days until the user’s next birthday. To do that, update the skill with programming logic that instructs Alexa to ask for the user’s birthday.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-1a.png)
+![](http://alexa-github.s3.amazonaws.com/python-code-tab.png)
 
-[TODO: Replace with Python Screenshot]
-
-**a.** In the developer console, click the**Code** tab.
+**a.** In the developer console, click the **Code** tab.
 
 Find the **LaunchRequestHandler**. Within the handler, the **speak_output** variable is passed to the **.speak()** function. In the next step, update the string to ask the user for their birthday.
 
