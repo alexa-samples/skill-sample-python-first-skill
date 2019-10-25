@@ -1,1 +1,2 @@
-ask-sdk-core
+boto3==1.9.216
+ask-sdk-core==1.11.0
