@@ -173,4 +173,4 @@ If your skill isn’t working or you’re getting some kind of syntax error, dow
 
  [Python Github Code Sample, Module 1: Build a Skill in 5 Minutes](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-1)
 
- [Continue to module 4](https://developer.amazon.com/alexa/alexa-skills-kit/resources/training-resources/cake-walk/cake-walk-4)
+ [Continue to module 2](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-2)

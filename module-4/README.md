@@ -456,5 +456,3 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
 If your skill isn’t working or you’re getting some kind of syntax error, download the code sample in Python from the link below. Then, go to the Code tab in the Alexa developer console and copy and paste the code into the **lambda_function.py** file. Be sure to save and deploy the code before testing it.
 
  [Python Github Code Sample, Module 4: Using the Alexa Setting API](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-4)
-
- [Continue to module 7](https://developer.amazon.com/alexa/alexa-skills-kit/resources/training-resources/cake-walk/cake-walk-7)

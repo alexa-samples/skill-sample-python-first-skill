@@ -295,4 +295,4 @@ If your skill isn’t working or you’re getting some kind of syntax error, dow
 
  [Python Github Code Sample, Module 3: Add Memory to Your Skill](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-3)
 
- [Continue to module 6](https://developer.amazon.com/alexa/alexa-skills-kit/resources/training-resources/cake-walk/cake-walk-6)
+[Continue to module 4](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-4)
