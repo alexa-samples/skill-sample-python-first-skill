@@ -397,4 +397,4 @@ If your skill isn’t working or you’re getting some kind of syntax error, dow
 
  [Python Github Code Sample, Module 2: Collecting Slots Turn by Turn](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-2) 
 
- [Continue to module 5](https://developer.amazon.com/alexa/alexa-skills-kit/resources/training-resources/cake-walk/cake-walk-5)
+ [Continue to module 3](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-3)
