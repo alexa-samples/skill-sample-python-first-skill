@@ -9,11 +9,12 @@
 import requests
 import logging
 import calendar
+import os
+import json
+import prompts
+
 from datetime import datetime
 from pytz import timezone
-import gettext
-
-from alexa import data
 
 from ask_sdk_s3.adapter import S3Adapter
 from ask_sdk_core.skill_builder import CustomSkillBuilder
@@ -23,7 +24,7 @@ from ask_sdk_core.dispatch_components import (
 )
 from ask_sdk_core.utils import is_request_type, is_intent_name
 
-s3_adapter = S3Adapter(bucket_name="custom-walk-testing")
+s3_adapter = S3Adapter(bucket_name=os.environ.get('S3_PERSISTENCE_BUCKET'))
 sb = CustomSkillBuilder(persistence_adapter=s3_adapter)
 
 logger = logging.getLogger("main")
@@ -39,10 +40,10 @@ class LaunchRequestIntentHandler(AbstractRequestHandler):
         return is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        _ = handler_input.attributes_manager.request_attributes["_"]
+        data = handler_input.attributes_manager.request_attributes["_"]
 
-        speech = _(data.WELCOME_MSG)
-        reprompt = _(data.WELCOME_REMPROMPT_MSG)
+        speech = data[prompts.WELCOME_MSG]
+        reprompt = data[prompts.WELCOME_REMPROMPT_MSG]
 
         handler_input.response_builder.speak(speech).ask(reprompt)
         return handler_input.response_builder.response
@@ -57,12 +58,12 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         # extract persistent attributes and check if they are all present
         attr = handler_input.attributes_manager.persistent_attributes
         attributes_are_present = (
-            "year" in attr and "month" in attr and "day" in attr)
+                "year" in attr and "month" in attr and "day" in attr)
 
         return attributes_are_present and is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        _ = handler_input.attributes_manager.request_attributes["_"]
+        data = handler_input.attributes_manager.request_attributes["_"]
 
         attr = handler_input.attributes_manager.persistent_attributes
 
@@ -91,7 +92,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
             logger.info("Device API result: {}".format(str(res)))
             userTimeZone = res
         except Exception:
-            speech = _(data.ERROR_TIMEZONE_MSG)
+            speech = data[prompts.ERROR_TIMEZONE_MSG]
             handler_input.response_builder.speak(speech)
             return handler_input.response_builder.response
 
@@ -117,19 +118,19 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         # setting the default speak_output to Happy xth Birthday!!
         # alexa will automatically correct the oridinal for you.
         # no need to worry about when to use st, th, rd
-        speak_output = _(data.HAPPY_BIRTHDAY_MSG).format(
+        speak_output = data[prompts.HAPPY_BIRTHDAY_MSG].format(
             str(current_year - year))
         if now_date != next_birthday:
             diff_days = abs((now_date - next_birthday).days)
             logger.info(speak_output)
-            speak_output = _(data.WELCOME_BACK_MSG).format(
+            speak_output = data[prompts.WELCOME_BACK_MSG].format(
                 diff_days,
-                (current_year-year)
+                (current_year - year)
             )
-            if(diff_days != 1):
-                speak_output = _(data.WELCOME_BACK_MSG_plural).format(
+            if (diff_days != 1):
+                speak_output = data[prompts.WELCOME_BACK_MSG_plural].format(
                     diff_days,
-                    (current_year-year)
+                    (current_year - year)
                 )
 
         handler_input.response_builder.speak(speak_output)
@@ -145,7 +146,7 @@ class BirthdayIntentHandler(AbstractRequestHandler):
         return is_intent_name("CaptureBirthdayIntent")(handler_input)
 
     def handle(self, handler_input):
-        _ = handler_input.attributes_manager.request_attributes["_"]
+        data = handler_input.attributes_manager.request_attributes["_"]
         slots = handler_input.request_envelope.request.intent.slots
 
         # extract slot values
@@ -163,7 +164,7 @@ class BirthdayIntentHandler(AbstractRequestHandler):
         handler_input.attributes_manager.persistent_attributes = session_attr
         handler_input.attributes_manager.save_persistent_attributes()
 
-        speech = _(data.REGISTER_BIRTHDAY_MSG).format(month, day, year)
+        speech = data[prompts.REGISTER_BIRTHDAY_MSG].format(month, day, year)
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
 
@@ -177,8 +178,8 @@ class HelpIntentHandler(AbstractRequestHandler):
         return is_intent_name("AMAZON.HelpIntent")(handler_input)
 
     def handle(self, handler_input):
-        _ = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = _(data.HELP_MSG)
+        data = handler_input.attributes_manager.request_attributes["_"]
+        speak_output = data[prompts.HELP_MSG]
 
         handler_input.response_builder.speak(
             speak_output
@@ -197,8 +198,8 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
     def handle(self, handler_input, exception):
         logger.info(exception)
-        _ = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = _(data.ERROR_MSG)
+        data = handler_input.attributes_manager.request_attributes["_"]
+        speak_output = data[prompts.ERROR_MSG]
         handler_input.response_builder.speak(speak_output).ask(speak_output)
         return handler_input.response_builder.response
 
@@ -210,11 +211,11 @@ class CancelAndStopIntentHandler(AbstractRequestHandler):
 
     def can_handle(self, handler_input):
         return is_intent_name("AMAZON.CancelIntent")(handler_input) \
-            and is_intent_name("AMAZON.StopIntent")(handler_input)
+               and is_intent_name("AMAZON.StopIntent")(handler_input)
 
     def handle(self, handler_input):
-        _ = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = _(data.GOODBYE_MSG)
+        data = handler_input.attributes_manager.request_attributes["_"]
+        speak_output = data[prompts.GOODBYE_MSG]
         handler_input.response_builder.speak(speak_output)
         return handler_input.response_builder.response
 
@@ -252,9 +253,12 @@ class LocalizationInterceptor(AbstractRequestInterceptor):
     def process(self, handler_input):
         locale = handler_input.request_envelope.request.locale
         logger.info("Locale is {}".format(locale))
-        i18n = gettext.translation(
-            'data', localedir='locales', languages=[locale], fallback=True)
-        handler_input.attributes_manager.request_attributes["_"] = i18n.gettext
+
+        # localized strings stored in language_strings.json
+        with open("language_strings.json") as language_prompts:
+            language_data = json.load(language_prompts)
+        data = language_data[locale]
+        handler_input.attributes_manager.request_attributes["_"] = data
 
 
 # register request / intent handlers
