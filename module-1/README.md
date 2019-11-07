@@ -106,7 +106,7 @@ If the skill was supposed to listen for the user’s response, you would use thi
 
 **c.** Within the **LaunchRequestHandler**, in the **handle()** function, find the line that begins **.ask()**. Add a **#** at the beginning of the line. This turns the line into a comment, meaning the line is ignored when the code runs.
 
-**d.** Next, look for the **.response()** function just below the line you commented out in the **LaunchRequestHandler**. This converts the **responseBuilder’s** work into the response that the skill will return. Remember the line that started with return? Think of it like hitting the Send button—it sends the response.
+**d.** Next, look for the **.response** object (which is return by the speak() function) just below the line you commented out in the **LaunchRequestHandler**. This converts the **responseBuilder’s** work into the response that the skill will return. Remember the line that started with return? Think of it like hitting the Send button—it sends the response.
 
 Your **LaunchRequestHandler** should now look like:
 
