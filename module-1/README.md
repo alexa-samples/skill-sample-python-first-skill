@@ -4,6 +4,7 @@ In this module, you will build Cake Walk, a simple skill that asks the user for 
 * remembers it
 * tells them how many days until their next birthday
 * wishes them Happy Birthday on their birthday
+
 In “Why develop skills with Alexa?” You saw what happens when a user interacts with a simple skill called “Hello World”. In the video below, let’s take a look at how users will interact with Cake Walk once you’ve built it:
 
 As you can see the skill is simple to use yet a bit complex to build. The burden is on us, the skill builder, to make the interaction simple and natural. One way to make it as natural as possible is to mimic human conversational patterns. Humans have memory so your skill should too. It would be frustrating if your best friend always had to ask your name (which may be a sign that they really aren’t your best friend at all). While you could build cake walk in a day, because of its complexity you’ll build cake walk over four modules in this course.
