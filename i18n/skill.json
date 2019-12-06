@@ -3,27 +3,51 @@
 		"publishingInformation": {
 			"locales": {
 				"en-US": {
-					"name": "Cake Walk"
+				  "name": "cake walk"
+				},
+				"en-AU": {
+				  "name": "cake walk"
+				},
+				"en-CA": {
+				  "name": "cake walk"
+				},
+				"en-GB": {
+				  "name": "cake walk"
+				},
+				"en-IN": {
+				  "name": "cake walk"
+				},
+				"pt-BR": {
+				  "name": "feliz aniversário"
+				},
+				"it-IT": {
+				  "name": "buon compleanno"
 				},
 				"fr-FR": {
 					"name": "Joyeux Anniversaire"
-				},
+						},
 				"fr-CA": {
 					"name": "Bonne Fête"
 				},
-				"it-IT": {
-					"name": "Buon Compleanno"
+				"hi-IN": {
+					"name": "cake walk"
 				},
 				"ja-JP": {
 					"name": "ケークウォーク"
 				},
-				"en-IN": {
-					"name": "cake walk"
+				"de-DE": {
+					"name": "Herzlichen Glückwunsch"
 				},
-				"hi-IN": {
-					"name": "cake walk"
+				"es-ES": {
+					"name": "feliz cumpleaños"
+				},
+				"es-MX": {
+					"name": "feliz cumpleaños"
+				},
+				"es-US": {
+					"name": "feliz cumpleaños"
 				}
-			},
+			  },
 			"isAvailableWorldwide": true,
 			"testingInstructions": "Sample Testing Instructions.",
 			"category": "EDUCATION_AND_REFERENCE",
