@@ -170,16 +170,16 @@ class BirthdayIntentHandler(AbstractRequestHandler):
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
 
-        # function to ensure that the date format corresponds with the locale that is triggering thee skill
-        def formatDate(self, year, month, day, locale):
-            if locale == 'en-US':
-                date = [month, day, year]
-            elif locale == 'jp-JP':
-                date = [year, month, day]
-            else:
-                date = [day, month, year]
+    # function to ensure that the date format corresponds with the locale that is triggering thee skill
+    def formatDate(self, year, month, day, locale):
+        if locale == 'en-US':
+            date = [month, day, year]
+        elif locale == 'jp-JP':
+            date = [year, month, day]
+        else:
+            date = [day, month, year]
 
-            return date
+        return date
 
 
 
