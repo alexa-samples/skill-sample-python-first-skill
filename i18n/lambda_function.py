@@ -147,6 +147,7 @@ class BirthdayIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         _ = handler_input.attributes_manager.request_attributes["_"]
         slots = handler_input.request_envelope.request.intent.slots
+        locale = handler_input.request_envelope.request.locale
 
         # extract slot values
         year = slots["year"].value
@@ -163,9 +164,24 @@ class BirthdayIntentHandler(AbstractRequestHandler):
         handler_input.attributes_manager.persistent_attributes = session_attr
         handler_input.attributes_manager.save_persistent_attributes()
 
-        speech = _(data.REGISTER_BIRTHDAY_MSG).format(month, day, year)
+        date = self.formatDate(year, month, day, locale)
+
+        speech = _(data.REGISTER_BIRTHDAY_MSG).format(date[0], date[1], date[2])
         handler_input.response_builder.speak(speech)
         return handler_input.response_builder.response
+
+        # function to ensure that the date format corresponds with the locale that is triggering thee skill
+        def formatDate(self, year, month, day, locale):
+            if locale == 'en-US':
+                date = [month, day, year]
+            elif locale == 'jp-JP':
+                date = [year, month, day]
+            else:
+                date = [day, month, year]
+
+            return date
+
+
 
 
 class HelpIntentHandler(AbstractRequestHandler):
