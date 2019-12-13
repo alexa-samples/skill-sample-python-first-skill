@@ -160,12 +160,12 @@ What if the user omits the words _I was born on_? Account for this by adding a s
 
 Now, you should account for a few other potential slot combinations.
 
-**i.** Enter each of the examples below as sample utterances. When you are finished, you should have six utterances.
-{month} {day}
-{month} {day} {year}
-{month} {year}
-I was born on {month} {day}
-I was born on {month} {day} {year}
+**i.** Enter each of the examples below as sample utterances. When you are finished, you should have six utterances.  
+{month} {day}  
+{month} {day} {year}  
+{month} {year}  
+I was born on {month} {day}  
+I was born on {month} {day} {year}  
 I was born in {month} {year}
 
 You have let Alexa know what slots need to be collected (and covered some of the different patterns users might provide that information in). Now you need to define exactly what those slots are by assigning a slot type to each slot.
