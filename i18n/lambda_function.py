@@ -118,7 +118,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         diff_days = abs((now_date - next_birthday).days)
 
         # the following locales have a different WELCOME_BACK_MSG for plural
-        if ((skill_locale == 'fr-FR') or (skill_locale == 'it-IT') or (skill_locale == 'es-ES')) or (skill_locale == 'pt-BR'):
+        if (('fr' in skill_locale) or ('it' in skill_locale) or ('es' in skill_locale)) or ('pt' in skill_locale):
 
             # if it is not the user birthday
             if now_date != next_birthday:
