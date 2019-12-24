@@ -1,0 +1,136 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "feliz cumpleaños",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CaptureBirthdayIntent",
+                    "slots": [
+                        {
+                            "name": "month",
+                            "type": "AMAZON.Month"
+                        },
+                        {
+                            "name": "day",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "year",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{month} del {year}",
+                        "{day} de {month}",
+                        "el año {year}",
+                        "en {year}",
+                        "nací en {year}",
+                        "nací en {year}",
+                        "el {day} de {month}",
+                        "el día {day} de {month}",
+                        "mi fecha de nacimiento es el {day} de {month} de {year}",
+                        "mi fecha de nacimiento es el {day} de {month} {year}",
+                        "nací el {day} de {month} {year}",
+                        "mi cumpleaños es el {day} de {month} {year}",
+                        "registra mi cumpleaños",
+                        "apunta mi cumpleaños",
+                        "apunta mi fecha de nacimiento",
+                        "registra mi fecha de nacimiento",
+                        "recuerda mi cumpleaños",
+                        "acuérdate de mi cumpleaños",
+                        "apúntate mi cumple"
+                    ]
+                }
+            ],
+            "types": []
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CaptureBirthdayIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "month",
+                            "type": "AMAZON.Month",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.303899476312.795077103633"
+                            }
+                        },
+                        {
+                            "name": "day",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.303899476312.985837334781"
+                            }
+                        },
+                        {
+                            "name": "year",
+                            "type": "AMAZON.NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.303899476312.27341833344"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.303899476312.795077103633",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Yo nací en noviembre. Y tú?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Cual es tu mes de nacimiento?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.303899476312.985837334781",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Nací el 6. Qué día del mes es tu cumpleaños?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.303899476312.27341833344",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Nací en dos mil catorce, y tú en qué año?"
+                    }
+                ]
+            }
+        ]
+    }
+}

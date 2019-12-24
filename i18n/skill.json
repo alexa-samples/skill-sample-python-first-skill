@@ -3,29 +3,29 @@
 		"publishingInformation": {
 			"locales": {
 				"en-US": {
-				  "name": "cake walk"
+					"name": "cake walk"
 				},
 				"en-AU": {
-				  "name": "cake walk"
+					"name": "cake walk"
 				},
 				"en-CA": {
-				  "name": "cake walk"
+					"name": "cake walk"
 				},
 				"en-GB": {
-				  "name": "cake walk"
+					"name": "cake walk"
 				},
 				"en-IN": {
-				  "name": "cake walk"
+					"name": "cake walk"
 				},
 				"pt-BR": {
-				  "name": "feliz aniversário"
+					"name": "feliz aniversário"
 				},
 				"it-IT": {
-				  "name": "buon compleanno"
+					"name": "buon compleanno"
 				},
 				"fr-FR": {
 					"name": "Joyeux Anniversaire"
-						},
+				},
 				"fr-CA": {
 					"name": "Bonne Fête"
 				},
@@ -47,7 +47,7 @@
 				"es-US": {
 					"name": "feliz cumpleaños"
 				}
-			  },
+			},
 			"isAvailableWorldwide": true,
 			"testingInstructions": "Sample Testing Instructions.",
 			"category": "EDUCATION_AND_REFERENCE",
