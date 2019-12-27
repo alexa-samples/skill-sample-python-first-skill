@@ -194,9 +194,9 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         attr = handler_input.attributes_manager.persistent_attributes
-        year = attr[‘year’]
-        month = attr[‘month’] # month is a string, and we need to convert it to a month index later
-        day = attr[‘day’]
+        year = attr['year']
+        month = attr['month'] # month is a string, and we need to convert it to a month index later
+        day = attr['day']
 
         # TODO:: Use the settings API to get current date and then compute how many days until user’s bday
         # TODO:: Say happy birthday on the user’s birthday
