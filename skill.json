@@ -56,7 +56,8 @@
 		"apis": {
 			"custom": {
 				"endpoint": {
-					"uri": "arn:aws:lambda:us-east-1:272347969877:function:dd1e21e4-3af4-4b76-a8e1-e582e9fd2c22:Release_0"
+					"sourceDir": "lambda",
+					"uri": "ask-custom-cake-walk"
 				}
 			}
 		},
