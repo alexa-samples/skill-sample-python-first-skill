@@ -1,0 +1,128 @@
+{
+    "interactionModel": {
+      "languageModel": {
+        "invocationName": "feliz aniversário",
+        "intents": [
+          {
+            "name": "AMAZON.CancelIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.NavigateHomeIntent",
+            "samples": []
+          },
+          {
+            "name": "CaptureBirthdayIntent",
+            "slots": [
+              {
+                "name": "month",
+                "type": "AMAZON.Month"
+              },
+              {
+                "name": "day",
+                "type": "AMAZON.NUMBER"
+              },
+              {
+                "name": "year",
+                "type": "AMAZON.FOUR_DIGIT_NUMBER"
+              }
+            ],
+            "samples": [
+              "dia {day} de {month} de {year}",
+              "{day} de {month} de {year}",
+              "{day} de {month}",
+              "Eu nasci em {day} de {month}",
+              "Eu nasci em {day} de {month} de {year}",
+              "Eu nasci em {month} de {year}",
+              "Eu nasci no dia {day}",
+              "Eu nasci no dia {day} de {month}",
+              "Eu nasci no dia {day} de {month} de {year}",
+              "anote meu aniversário"
+            ]
+          }
+        ],
+        "types": []
+      },
+      "dialog": {
+        "intents": [
+          {
+            "name": "CaptureBirthdayIntent",
+            "confirmationRequired": false,
+            "prompts": {},
+            "slots": [
+              {
+                "name": "month",
+                "type": "AMAZON.Month",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.303899476312.795077103633"
+                }
+              },
+              {
+                "name": "day",
+                "type": "AMAZON.NUMBER",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.303899476312.985837334781"
+                }
+              },
+              {
+                "name": "year",
+                "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.303899476312.27341833344"
+                }
+              }
+            ]
+          }
+        ],
+        "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+        {
+          "id": "Elicit.Slot.303899476312.795077103633",
+          "variations": [
+            {
+              "type": "PlainText",
+              "value": "Eu nasci em Novembro. Em que mês você nasceu?"
+            },
+            {
+              "type": "PlainText",
+              "value": "Qual o mês do seu nascimento?"
+            }
+          ]
+        },
+        {
+          "id": "Elicit.Slot.303899476312.985837334781",
+          "variations": [
+            {
+              "type": "PlainText",
+              "value": "Eu nasci no dia seis. Qual o dia do seu nascimento?"
+            }
+          ]
+        },
+        {
+          "id": "Elicit.Slot.303899476312.27341833344",
+          "variations": [
+            {
+              "type": "PlainText",
+              "value": "Eu nasci em dois mil e catorze, em que ano você nasceu?"
+            }
+          ]
+        }
+      ]
+    },
+    "version": "4"
+  }
