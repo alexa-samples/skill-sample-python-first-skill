@@ -1,128 +1,256 @@
 {
-	"interactionModel": {
-		"languageModel": {
-			"invocationName": "cake walk",
-			"intents": [
-				{
-					"name": "AMAZON.CancelIntent",
-					"samples": []
-				},
-				{
-					"name": "AMAZON.HelpIntent",
-					"samples": []
-				},
-				{
-					"name": "AMAZON.StopIntent",
-					"samples": []
-				},
-				{
-					"name": "AMAZON.NavigateHomeIntent",
-					"samples": []
-				},
-				{
-					"name": "CaptureBirthdayIntent",
-					"slots": [
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "cakewalk",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CaptureBirthdayIntent",
+                    "slots": [
+                        {
+                            "name": "month",
+                            "type": "AMAZON.Month"
+                        },
+                        {
+                            "name": "day",
+                            "type": "AMAZON.Ordinal"
+                        },
+                        {
+                            "name": "year",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "{month} {day}",
+                        "{day} of {month}",
+                        "{month} {day} {year}",
+                        "{day} of {month} {year}",
+                        "{month} {year}",
+                        "मेरा जन्मदिन {month} {day} मैं था ",
+                        "मेरा जन्मदिन {month} {day} {year} था ",
+                        "मेरा जन्मदिन {month} {year} था ",
+                        "register my birthday",
+                        "जनमदिन register कर दो",
+                        "जनमदिन register करो",
+                        "जन्मदिन register कर दो",
+                        "जन्मदिन register करो"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "AMAZON.Month",
+                    "values": [
+                        {
+                            "id": "जनवरी",
+                            "name": {
+                                "value": "january",
+                                "synonyms": [
+                                    "January",
+                                    "जनवरी"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "फ़रवरी",
+                            "name": {
+                                "value": "february",
+                                "synonyms": [
+                                    "February",
+                                    "फ़रवरी"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "मार्च",
+                            "name": {
+                                "value": "march",
+                                "synonyms": [
+                                    "March",
+                                    "मार्च"
+                                ]
+                            }
+                        },
 						{
-							"name": "month",
-							"type": "AMAZON.NUMBER"
-						},
-						{
-							"name": "day",
-							"type": "AMAZON.NUMBER"
-						},
-						{
-							"name": "year",
-							"type": "AMAZON.FOUR_DIGIT_NUMBER"
-						}
-					],
-					"samples": [
-						"{month} {day}",
-						"{month} {day} {year}",
-						"{month} {year}",
-						"मेरा जन्मदिन {month} {day} मैं था ",
-						"मेरा जन्मदिन {month} {day} {year} था ",
-						"मेरा जन्मदिन {month} {year} था ",
-						"register my birthday",
-						"जनमदिन register कर दो",
-						"जनमदिन register करो",
-						"जन्मदिन register कर दो",
-						"जन्मदिन register करो"
-					]
-				}
-			],
-			"types": []
-		},
-		"dialog": {
-			"intents": [
-				{
-					"name": "CaptureBirthdayIntent",
-					"confirmationRequired": false,
-					"prompts": {},
-					"slots": [
-						{
-							"name": "month",
-							"type": "AMAZON.NUMBER",
-							"confirmationRequired": false,
-							"elicitationRequired": true,
-							"prompts": {
-								"elicitation": "Elicit.Slot.303899476312.795077103633"
+							"id": "अप्रेल",
+							"name": {
+								"value": "april",
+								"synonyms": [
+									"April",
+									"अप्रेल"
+								]
 							}
 						},
-						{
-							"name": "day",
-							"type": "AMAZON.NUMBER",
-							"confirmationRequired": false,
-							"elicitationRequired": true,
-							"prompts": {
-								"elicitation": "Elicit.Slot.303899476312.985837334781"
-							}
-						},
-						{
-							"name": "year",
-							"type": "AMAZON.FOUR_DIGIT_NUMBER",
-							"confirmationRequired": false,
-							"elicitationRequired": true,
-							"prompts": {
-								"elicitation": "Elicit.Slot.303899476312.27341833344"
-							}
-						}
-					]
-				}
-			],
-			"delegationStrategy": "ALWAYS"
-		},
-		"prompts": [
-			{
-				"id": "Elicit.Slot.303899476312.795077103633",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "मेरा जन्म नवंबर में हुआ था. आपका जन्मदिन कब हैं?"
-					},
-					{
-						"type": "PlainText",
-						"value": "किस महीना में आपका जन्म हुआ था."
-					}
-				]
-			},
-			{
-				"id": "Elicit.Slot.303899476312.985837334781",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "मेरा जन्म छठे पर हुआ था. आप किस दिन पैदा हुए थे?"
-					}
-				]
-			},
-			{
-				"id": "Elicit.Slot.303899476312.27341833344",
-				"variations": [
-					{
-						"type": "PlainText",
-						"value": "मेरा जन्म 2014 में हुआ था, आप किस वर्ष पैदा हुए थे?"
-					}
-				]
-			}
-		]
-	}
+                        {
+                            "id": "मई",
+                            "name": {
+                                "value": "may",
+                                "synonyms": [
+                                    "May",
+                                    "मई"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "जून",
+                            "name": {
+                                "value": "june",
+                                "synonyms": [
+                                    "June",
+                                    "जून"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "जुलाई",
+                            "name": {
+                                "value": "july",
+                                "synonyms": [
+                                    "July",
+                                    "जुलाई"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "अगस्त",
+                            "name": {
+                                "value": "august",
+                                "synonyms": [
+                                    "August",
+                                    "अगस्त"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "सितम्बर",
+                            "name": {
+                                "value": "september",
+                                "synonyms": [
+                                    "Septembeer",
+                                    "सितम्बर"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "अक्टूबर",
+                            "name": {
+                                "value": "october",
+                                "synonyms": [
+                                    "October",
+                                    "अक्टूबर"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "नवम्बर",
+                            "name": {
+                                "value": "november",
+                                "synonyms": [
+                                    "November",
+                                    "नवम्बर"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "दिसम्बर",
+                            "name": {
+                                "value": "december",
+                                "synonyms": [
+                                    "December",
+                                    "दिसम्बर"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CaptureBirthdayIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "month",
+                            "type": "AMAZON.Month",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.303899476312.795077103633"
+                            }
+                        },
+                        {
+                            "name": "day",
+                            "type": "AMAZON.Ordinal",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.303899476312.985837334781"
+                            }
+                        },
+                        {
+                            "name": "year",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.303899476312.27341833344"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.303899476312.795077103633",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "मेरा जन्म नवंबर में हुआ था. आपका जन्मदिन कब हैं?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "किस महीना में आपका जन्म हुआ था."
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.303899476312.985837334781",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "मेरा जन्म छठे पर हुआ था. आप किस दिन पैदा हुए थे?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.303899476312.27341833344",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "मेरा जन्म 2014 में हुआ था, आप किस वर्ष पैदा हुए थे?"
+                    }
+                ]
+            }
+        ]
+    }
 }
