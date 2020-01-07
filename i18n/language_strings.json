@@ -1,0 +1,122 @@
+{
+    "en": {
+            "WELCOME_MSG": "Hello! Welcome to Cake walk. What is your birthday?",
+            "WELCOME_REPROMPT_MSG": "I was born Nov. 6th, 2014. When were you born?",
+            "WELCOME_BACK_MSG": "Welcome back. It looks like there is {} day until your {}th birthday.",
+            "WELCOME_BACK_MSG_plural": "Welcome back. It looks like there are {} days until your {}th birthday.",
+            "HAPPY_BIRTHDAY_MSG": "Happy {}th birthday!",
+            "REGISTER_BIRTHDAY_MSG": "Thanks, I'll remember that you were born {} {} {}.",
+            "HELP_MSG": "You can tell me your date of birth and I'll take note. You can also just say, 'register my birthday' and I will guide you. Which one would you like to try?",
+            "GOODBYE_MSG": "Goodbye!",
+            "REFLECTOR_MSG": "You just triggered {}",
+            "ERROR_MSG": "Sorry, I couldn't understand what you said. Can you reformulate?",
+            "ERROR_TIMEZONE_MSG": "I can't determine your timezone. Please check your device settings and make sure a timezone was selected. After that please reopen the skill and try again!"
+    },
+    "pt": {
+            "WELCOME_MSG": "Olá! Boas vindas à skill Feliz Aniversário. Quando é o seu aniversário?",
+            "WELCOME_REPROMPT_MSG": "Eu nasci no dia 6 de novembro de 2014. Quando você nasceu?",
+            "WELCOME_BACK_MSG": "Que bom que você está de volta! Parece que falta {} dia até o seu aniversário de {} anos.",
+            "WELCOME_BACK_MSG_plural": "Que bom que você está de volta! Parece que faltam {} dias até o seu aniversário de {} anos.",
+            "HAPPY_BIRTHDAY_MSG": "Feliz aniversário de {} ano",
+            "HAPPY_BIRTHDAY_MSG_plural": "Feliz aniversário de {} anos",
+            "REGISTER_BIRTHDAY_MSG": "Obrigada, eu vou lembrar que você nasceu no dia {} de {} de {}.",
+            "HELP_MSG": "Você pode me dizer o dia em que você nasceu e eu vou me lembrar. Você também pode dizer, 'anote meu aniversário' eu irei guiar sua interação. Qual deles você quer tentar?",
+            "GOODBYE_MSG": "Tchau!",
+            "REFLECTOR_MSG": "Você acabou de acionar o {}",
+            "ERROR_MSG": "Desculpe, eu não entendi o que você falou. Pode reformular?",
+            "ERROR_TIMEZONE_MSG": "Não consegui determinar seu fuso horário. Por favor verifique as configurações de seu aparelho e certifique-se de que um fuso horário está selecionado. Depois disso, reinicie a skill e tente novamente!"
+    },
+    "de": {
+            "WELCOME_MSG": "Hallo! Herzlich willkommen zu Herzlichen Glückwunsch. Wann hast du Geburtstag?",
+            "WELCOME_REPROMPT_MSG": "Ich bin am 6. November 2014 geboren. Wann bist du geboren?",
+            "WELCOME_BACK_MSG": "Willkommen zurück. Es sieht so aus, als ob noch {} Tag bis zu Deinem {}. Geburtstag verbleibt.",
+            "WELCOME_BACK_MSG_plural": "Willkommen zurück. Es sieht so aus, als ob noch {} Tage zu Deinem {}. Geburtstag verbleiben.",
+            "HAPPY_BIRTHDAY_MSG": "Alles Gute zum {}. Geburtstag!",
+            "REGISTER_BIRTHDAY_MSG": "Danke, ich werde mir merken, dass du am {} {} {} geboren wurdest.",
+            "HELP_MSG": "Du kannst mir sagen, wann du Geburtstag hast und ich werde es mir merken. Du kannst auch einfach 'merke dir meinen Geburtstag' sagen und ich werde dir weiterhelfen. Was würdest du gerne probieren?",
+            "GOODBYE_MSG": "Tschüss!",
+            "REFLECTOR_MSG": "Du hast gerade {} gestartet.",
+            "ERROR_MSG": "Sorry, ich konnte nicht verstehen was du gesagt hast. Kannst du das bitte umformulieren?",
+            "ERROR_TIMEZONE_MSG": "Ich kann deine Zeitzone nicht bestimmen. Bitte überprüfe deine Geräteoptionen und stelle sicher, dass eine Zeitzone ausgeewählt ist. Öffne danach den Skill wieder und probiere es erneut!"
+        
+    },
+    "fr": {
+            "WELCOME_MSG": "Bonjour! Bienvenue sur le Génie des Anniversaires. Quelle est votre date de naissance ?",
+            "WELCOME_REPROMPT_MSG": "Je suis née le 6 novembre 2014. Et vous, quand êtes-vous né ?",
+            "WELCOME_BACK_MSG": "Content de vous revoir! Il vous reste {} jour avant d'avoir {} ans.",
+            "WELCOME_BACK_MSG_plural": "Content de vous revoir! Il vous reste {} jours avant d'avoir {} ans.",
+            "HAPPY_BIRTHDAY_MSG": "Joyeux Anniversaire! Aujourd'hui, vous avez {} an!",
+            "HAPPY_BIRTHDAY_MSG_plural": "Joyeux Anniversaire! Aujourd'hui, vous avez {} ans!",
+            "REGISTER_BIRTHDAY_MSG": "Merci, je vais me rappeler que vous êtes né le {} {} {}.",
+            "HELP_MSG": "Je peux me souvenir de votre date de naissance. Dites-moi votre jour, mois et année de naissance ou bien dites-moi simplement 'enregistre mon anniversaire' et je vous guiderai. Quel est votre choix ?",
+            "GOODBYE_MSG": "Au revoir!",
+            "REFLECTOR_MSG": "Vous avez invoqué l'intention {}",
+            "ERROR_MSG": "Désolé, je n'ai pas compris. Pouvez-vous reformuler ?",
+            "ERROR_TIMEZONE_MSG": "Je n'ai pas réussi à déterminer votre fuseau horaire. Veuillez vérifier les paramètres de votre appareil et réessayez."
+        
+    },
+    "fr-CA": {
+            "WELCOME_MSG": "Bonjour! Bienvenue sur le Génie des Fêtes. Quelle est votre date de naissance ?",
+            "HAPPY_BIRTHDAY_MSG": "Bonne Fête! Aujourd'hui, vous avez {} an!",
+            "HAPPY_BIRTHDAY_MSG_plural": "Bonne Fête! Aujourd'hui, vous avez {} ans!",
+            "HELP_MSG": "Je peux me souvenir de votre date de naissance. Dites-moi votre jour, mois et année de naissance ou bien dites-moi simplement 'sauve ma fête' et je vous guiderai. Quel est votre choix ?"
+        
+    },
+  "it": {
+            "WELCOME_MSG": "Ciao! Benvenuti a Buon Compleanno. Qual'è la tua data di nascita?",
+            "WELCOME_REPROMPT_MSG": "Io sono nata il 6 novembre 2014. E tu invece?",
+            "WELCOME_BACK_MSG": "Ciao di nuovo! Manca {} giorno a quando avrai {} anni.",
+            "WELCOME_BACK_MSG_plural": "Ciao di nuovo! Mancano {} giorni a quando avrai {} anni.",
+            "HAPPY_BIRTHDAY_MSG": "Buon compleanno! Oggi compi {} anno!",
+            "HAPPY_BIRTHDAY_MSG_plural": "Buon compleanno! Oggi compi {} anni!",
+            "REGISTER_BIRTHDAY_MSG": "Grazie, mi ricorderò la tua data di nascita: {} {} {}.",
+            "HELP_MSG": "Posso segnarmi la tua data di nascita. Dimmi pure la data oppure dimmi di ricordami il tuo compleanno. Cosa preferisci?",
+            "GOODBYE_MSG": "A presto!",
+            "REFLECTOR_MSG": "Hai invocato l'intento {}",
+            "ERROR_MSG": "Scusa, non ho capito. Puoi ripetere?",
+            "ERROR_TIMEZONE_MSG": "Non ho potuto determinare il tuo fuso orario. Verifica la configurazione del tuo dispositivo, e riprova."
+        
+    },
+    "es": {
+            "WELCOME_MSG": "Hola! Bienvenidos a Feliz Cumpleaños. Cual es tu fecha de nacimiento?",
+            "WELCOME_REPROMPT_MSG": "Yo nací el 6 de noviembre 2014. Y tú?",
+            "WELCOME_BACK_MSG": "Hola otra vez! Falta {} día para que cumplas {} año.", 
+            "WELCOME_BACK_MSG_plural": "Hola otra vez! Faltan {} días para que cumplas {} años.",
+            "HAPPY_BIRTHDAY_MSG": "Feliz Cumpleaños! Hoy cumples {} año!",
+            "HAPPY_BIRTHDAY_MSG_plural": "Feliz Cumpleaños! Hoy cumples {} años!",
+            "REGISTER_BIRTHDAY_MSG": "Gracias, me acordaré de tu fecha de nacimiento: {} {} {}.",
+            "HELP_MSG": "Puedo apuntarme tu fecha de nacimiento. Dime la fecha o dime de acordarme de tu cumpleaños. Qué prefieres?",
+            "GOODBYE_MSG": "Hasta luego!",
+            "REFLECTOR_MSG": "Has invocado {}",
+            "ERROR_MSG": "Perdona, no entendido. Puedes repetir?",
+            "ERROR_TIMEZONE_MSG": "No he potido determinar tu zona horaria. Verifica la configuración de tu dispositivo, y intenta otra vez."
+        
+    },
+    "ja": {
+            "WELCOME_MSG": "こんにちは、ケークウォークへようこそ。あなたの誕生日はいつですか？",
+            "WELCOME_REPROMPT_MSG": "私は2004年10月6日に生まれました。あなたの誕生日はいつですか？",
+            "WELCOME_BACK_MSG": "おかえりなさい。{}歳のお誕生日まで、あと<say-as interpret-as=\"cardinal\">1</say-as>日です。",
+            "WELCOME_BACK_MSG_plural": "おかえりなさい。{}歳のお誕生日まで、残り{}日です。",
+            "HAPPY_BIRTHDAY_MSG": "{}歳のお誕生日、おめでとうございます！",
+            "REGISTER_BIRTHDAY_MSG": "ありがとうございます。誕生日は {}年 {}月 {}日ですね？",
+            "HELP_MSG": "あなたの誕生日を言うと、その日付を記憶します。もしくは、「私の誕生日を登録して」と言うと、詳しくご案内します。どちらにしますか？",
+            "GOODBYE_MSG": "さようなら",
+            "REFLECTOR_MSG": "{}がトリガーされました。",
+            "ERROR_MSG": "ごめんなさい、うまく理解できませんでした。もう一度言ってみてください。",
+            "ERROR_TIMEZONE_MSG": "タイムゾーンを特定できませんでした。Alexaアプリでデバイスの設定を開き、タイムゾーンが正しく選択されていることを確認したあとで、もう一度試してください。"
+        
+    },
+    "hi": {
+            "WELCOME_MSG": "नमस्ते. Cake Walk में आपका स्वागत. आपका जनमदिन कब हैं?",
+            "WELCOME_REPROMPT_MSG": "मेरा जन्म 6 नवंबर, 2014 को हुआ था. आप कब पैदा हुए थे?",
+            "WELCOME_BACK_MSG": "वापसी पर स्वागत है. आपके {} वे जन्मदिन तक {} दिन हैं",
+            "WELCOME_BACK_MSG_plural": "वापसी पर स्वागत है. आपके {} वे जन्मदिन तक {} दिन हैं",
+            "HAPPY_BIRTHDAY_MSG": "{} वां जन्मदिन मुबारक हो",
+            "REGISTER_BIRTHDAY_MSG": "शुक्रिया. मुझे याद होगा कि आप {} {} {} मैं पैदा हुए थेैं",
+            "HELP_MSG": "आप मुझे अपनी जन्मतिथि बता सकते हैं और मैं note कर लूंगा. आप यह भी कह सकते हैं, 'मेरा जन्मदिन register करें. आप कौन सा प्रयास करना चाहेंगे?",
+            "GOODBYE_MSG": "अलवादी ",
+            "REFLECTOR_MSG": "आपने {} trigger किया हैं ",
+            "ERROR_MSG": "Sorry, मैं वो समझ नहीं पायी. क्या आप दोहरा सकते हैं ",
+            "ERROR_TIMEZONE_MSG": "Sorry. मैं आपके समयक्षेत्र का निर्धारण नहीं कर सकता. आपकी Device Settings में timezone select कर दो और एक और बार skill खोलो"
+        }
+}
