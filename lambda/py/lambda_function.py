@@ -53,7 +53,9 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return handler_input.response_builder.response
 
 class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
-    """Handler for launch after they have set their birthday"""
+    """
+    Handler for launch after they have set their birthday
+    """
 
     def can_handle(self, handler_input):
         # extract persistent attributes and check if they are all present
@@ -161,6 +163,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
                 # .ask("add a reprompt if you want to keep the session open for the user to respond")
                 .response
         )
+
 
 class BirthdayIntentHandler(AbstractRequestHandler):
     """
