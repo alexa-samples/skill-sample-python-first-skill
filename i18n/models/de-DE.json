@@ -1,0 +1,125 @@
+{
+    "interactionModel": {
+      "languageModel": {
+        "invocationName": "herzlichen glückwunsch",
+        "intents": [
+          {
+            "name": "AMAZON.CancelIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.HelpIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.StopIntent",
+            "samples": []
+          },
+          {
+            "name": "AMAZON.NavigateHomeIntent",
+            "samples": []
+          },
+          {
+            "name": "CaptureBirthdayIntent",
+            "slots": [
+              {
+                "name": "month",
+                "type": "AMAZON.Month"
+              },
+              {
+                "name": "day",
+                "type": "AMAZON.Ordinal"
+              },
+              {
+                "name": "year",
+                "type": "AMAZON.FOUR_DIGIT_NUMBER"
+              }
+            ],
+            "samples": [
+              "{day} {month}",
+              "{day} {month} {year}",
+              "{month} {year}",
+              "Ich bin am {day} {month} geboren",
+              "Ich bin am {day} {month} {year} geboren",
+              "Ich bin am {month} {year} geboren",
+              "merke dir meinen Geburtstag"
+            ]
+          }
+        ],
+        "types": []
+      },
+      "dialog": {
+        "intents": [
+          {
+            "name": "CaptureBirthdayIntent",
+            "confirmationRequired": false,
+            "prompts": {},
+            "slots": [
+              {
+                "name": "month",
+                "type": "AMAZON.Month",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.303899476312.795077103633"
+                }
+              },
+              {
+                "name": "day",
+                "type": "AMAZON.Ordinal",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.303899476312.985837334781"
+                }
+              },
+              {
+                "name": "year",
+                "type": "AMAZON.FOUR_DIGIT_NUMBER",
+                "elicitationRequired": true,
+                "confirmationRequired": false,
+                "prompts": {
+                  "elicitation": "Elicit.Slot.303899476312.27341833344"
+                }
+              }
+            ]
+          }
+        ],
+        "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+        {
+          "id": "Elicit.Slot.303899476312.795077103633",
+          "variations": [
+            {
+              "type": "PlainText",
+              "value": "Ich wurde im November geboren. In welchem Monat wurdest du geboren?"
+            },
+            {
+              "type": "PlainText",
+              "value": "In welchem Monat wurdest du geboren?"
+            }
+          ]
+        },
+        {
+          "id": "Elicit.Slot.303899476312.985837334781",
+          "variations": [
+            {
+              "type": "PlainText",
+              "value": "Ich wurde am sechsten geboren. An welchem Tag wurdest du geboren?"
+            }
+          ]
+        },
+        {
+          "id": "Elicit.Slot.303899476312.27341833344",
+          "variations": [
+            {
+              "type": "PlainText",
+              "value": "Ich wurde im Jahr zweitausendvierzehn geboren. In welchem Jahr wurdest du geboren?"
+            }
+          ]
+        }
+      ]
+    },
+    "version": "2"
+  }
