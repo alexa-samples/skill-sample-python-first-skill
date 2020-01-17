@@ -12,7 +12,6 @@ import locale
 import requests
 import calendar
 import gettext
-import prompts
 from datetime import datetime
 from pytz import timezone
 from ask_sdk_s3.adapter import S3Adapter
@@ -46,8 +45,8 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         data = handler_input.attributes_manager.request_attributes["_"]
-        speech = data[prompts.WELCOME_MSG]
-        reprompt = data[prompts.WELCOME_REPROMPT_MSG]
+        speech = data["WELCOME_MSG"]
+        reprompt = data["WELCOME_REPROMPT_MSG"]
 
         handler_input.response_builder.speak(speech).ask(reprompt)
         return handler_input.response_builder.response
@@ -70,7 +69,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         day = int(attr['day'])
         
         data = handler_input.attributes_manager.request_attributes["_"]
-        error_timezone_speech = data[prompts.ERROR_TIMEZONE_MSG]
+        error_timezone_speech = data["ERROR_TIMEZONE_MSG"]
 
         # get skill locale from request
         skill_locale = handler_input.request_envelope.request.locale
@@ -125,35 +124,35 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
             # if it is not the user birthday
             if now_date != next_birthday:
                 if diff_days > 1:
-                    speak_output = data[prompts.WELCOME_BACK_MSG_plural].format(diff_days, current_year-year)
+                    speak_output = data["WELCOME_BACK_MSG_plural"].format(diff_days, current_year-year)
                 if diff_days < 2:
-                    speak_output = data[prompts.WELCOME_BACK_MSG].format(diff_days, current_year - year)
+                    speak_output = data["WELCOME_BACK_MSG"].format(diff_days, current_year - year)
 
             # if it is the user birthday
             else:
                 if (current_year - year > 1):
-                    speak_output = data[prompts.HAPPY_BIRTHDAY_MSG_plural].format(current_year - year)
+                    speak_output = data["HAPPY_BIRTHDAY_MSG_plural"].format(current_year - year)
                 if current_year - year < 2:
-                    speak_output = data[prompts.HAPPY_BIRTHDAY_MSG].format(current_year - year)
+                    speak_output = data["HAPPY_BIRTHDAY_MSG"].format(current_year - year)
 
         # all other locales
         else:
-            speak_output = data[prompts.HAPPY_BIRTHDAY_MSG].format(current_year - year)
+            speak_output = data["HAPPY_BIRTHDAY_MSG"].format(current_year - year)
 
             # if it is not the user birthday
             if now_date != next_birthday:
                 if diff_days > 1:
                     # for ja and hi, the order of the slots is inverted, i.e. year before day
                     if ('ja' in skill_locale or 'hi' in skill_locale):
-                        speak_output = data[prompts.WELCOME_BACK_MSG_plural].format(current_year-year, diff_days)
+                        speak_output = data["WELCOME_BACK_MSG_plural"].format(current_year-year, diff_days)
                     else:
-                        speak_output = data[prompts.WELCOME_BACK_MSG_plural].format(diff_days, current_year-year)
+                        speak_output = data["WELCOME_BACK_MSG_plural"].format(diff_days, current_year-year)
                 elif diff_days < 2:
                     # for ja and hi, the order of the slots is inverted, i.e. year before day
                     if ('ja' in skill_locale or 'hi' in skill_locale):
-                        speak_output = data[prompts.WELCOME_BACK_MSG].format(current_year - year, diff_days)
+                        speak_output = data["WELCOME_BACK_MSG"].format(current_year - year, diff_days)
                     else:
-                        speak_output = data[prompts.WELCOME_BACK_MSG].format(diff_days, current_year - year)
+                        speak_output = data["WELCOME_BACK_MSG"].format(diff_days, current_year - year)
 
         return (
             handler_input.response_builder
@@ -203,8 +202,9 @@ class BirthdayIntentHandler(AbstractRequestHandler):
         # ensure that the order the arguments is correct (MM/DD/YYYY or DD/MM/YYYY) according to locale
         date = self.formatDate(year, month, day, skill_locale)
 
-        speech = data[prompts.REGISTER_BIRTHDAY_MSG].format(date[0], date[1], date[2])
+        speech = data["REGISTER_BIRTHDAY_MSG"].format(date[0], date[1], date[2])
         handler_input.response_builder.speak(speech)
+        handler_input.response_builder.set_should_end_session(True)
         return handler_input.response_builder.response
 
     # function to ensure that the date format corresponds with the locale that is triggering thee skill
@@ -239,7 +239,7 @@ class HelpIntentHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
 
         data = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = data[prompts.HELP_MSG]
+        speak_output = data["HELP_MSG"]
 
         return (
             handler_input.response_builder
@@ -259,7 +259,7 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         data = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = data[prompts.GOODBYE_MSG]
+        speak_output = data["GOODBYE_MSG"]
 
         return (
             handler_input.response_builder
@@ -296,7 +296,7 @@ class IntentReflectorHandler(AbstractRequestHandler):
         # type: (HandlerInput) -> Response
         data = handler_input.attributes_manager.request_attributes["_"]
         intent_name = ask_utils.get_intent_name(handler_input)
-        speak_output = data[prompts.REFLECTOR_MSG].format(intent_name)
+        speak_output = data["REFLECTOR_MSG"].format(intent_name)
 
         return (
             handler_input.response_builder
@@ -319,7 +319,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         # type: (HandlerInput, Exception) -> Response
         logger.error(exception, exc_info=True)
         data = handler_input.attributes_manager.request_attributes["_"]
-        speak_output = data[prompts.ERROR_MSG]
+        speak_output = data["ERROR_MSG"]
 
         return (
             handler_input.response_builder
