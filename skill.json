@@ -2,52 +2,52 @@
 	"manifest": {
 		"publishingInformation": {
 			"locales": {
-				"en-US": {
-					"name": "cake walk"
+				"de-DE": {
+					"name": "Herzlichen Glückwunsch"
 				},
 				"en-AU": {
-					"name": "cake walk"
+					"name": "Cake Walk"
 				},
 				"en-CA": {
-					"name": "cake walk"
+					"name": "Cake Walk"
 				},
 				"en-GB": {
-					"name": "cake walk"
+					"name": "Cake Walk"
 				},
 				"en-IN": {
-					"name": "cake walk"
+					"name": "Cake Walk"
 				},
-				"pt-BR": {
-					"name": "feliz aniversário"
+				"en-US": {
+					"name": "Cake Walk"
 				},
-				"it-IT": {
-					"name": "buon compleanno"
+				"es-ES": {
+					"name": "Feliz Cumpleaños"
 				},
-				"fr-FR": {
-					"name": "Joyeux Anniversaire"
-						},
+				"es-MX": {
+					"name": "Feliz Cumpleaños"
+				},
+				"es-US": {
+					"name": "Feliz Cumpleaños"
+				},
 				"fr-CA": {
 					"name": "Bonne Fête"
 				},
+				"fr-FR": {
+					"name": "Joyeux Anniversaire"
+				},
 				"hi-IN": {
-					"name": "cake walk"
+					"name": "Cake Walk"
+				},
+				"it-IT": {
+					"name": "Buon Compleanno"
 				},
 				"ja-JP": {
 					"name": "ケークウォーク"
 				},
-				"de-DE": {
-					"name": "Herzlichen Glückwunsch"
-				},
-				"es-ES": {
-					"name": "feliz cumpleaños"
-				},
-				"es-MX": {
-					"name": "feliz cumpleaños"
-				},
-				"es-US": {
-					"name": "feliz cumpleaños"
+				"pt-BR": {
+					"name": "Feliz Aniversário"
 				}
-			  },
+			},
 			"isAvailableWorldwide": true,
 			"testingInstructions": "Sample Testing Instructions.",
 			"category": "EDUCATION_AND_REFERENCE",
