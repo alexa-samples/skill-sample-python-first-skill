@@ -103,7 +103,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         current_year = now_time.year
 
         # getting the next birthday
-        month_as_index = list(calendar.month_abbr).index(month[:3])
+        month_as_index = list(calendar.month_abbr).index(month[:3].title())
         next_birthday = datetime(current_year, month_as_index, day)
 
         # check if we need to adjust bday by one year
