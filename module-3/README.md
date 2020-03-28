@@ -61,7 +61,7 @@ s3_adapter = S3Adapter(bucket_name="NAME_OF_YOUR_BUCKET_HERE")
 
 ![](./s3_buckets.PNG)
 
-**j.** In the code from step g, replace **NAME_OF_YOUR_BUCKET_HERE** with the name of the bucket found in step h.
+**j.** In the code from step g, replace **NAME_OF_YOUR_BUCKET_HERE** with the name of the bucket found in step **i**.
 
 **k.** In the **lambda_function.py** file, find the line that begins **from ask_sdk_core.skill_builder import SkillBuilder**. Replace this line with the following code:
 
@@ -76,7 +76,7 @@ import logging
 import ask_sdk_core.utils as ask_utils
 import os
 from ask_sdk_s3.adapter import S3Adapter
-s3_adapter = S3Adapter(bucket_name=os.environ["NAME_OF_YOUR_BUCKET_HERE"])
+s3_adapter = S3Adapter(bucket_name="NAME_OF_YOUR_BUCKET_HERE")
 
 from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
