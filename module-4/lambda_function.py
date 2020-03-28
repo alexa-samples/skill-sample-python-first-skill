@@ -12,7 +12,7 @@ import calendar
 from datetime import datetime
 from pytz import timezone
 from ask_sdk_s3.adapter import S3Adapter
-s3_adapter = S3Adapter(bucket_name=os.environ["S3_PERSISTENCE_BUCKET"])
+s3_adapter = S3Adapter(bucket_name=os.environ["INSERT_YOUR_BUCKET_NAME_HERE"])
 
 from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
@@ -107,12 +107,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         speak_output = "Happy {}th birthday!".format(str(current_year - year))
         if now_date != next_birthday:
             diff_days = abs((now_date - next_birthday).days)
-            speak_output = "Welcome back. It looks like there are \
-                            {days} days until your {birthday_num}th\
-                            birthday".format(
-                                days=diff_days,
-                                birthday_num=(current_year-year)
-                            )
+            speak_output = "Welcome back. It looks like there are {days} days until your {birthday_num}th birthday".format(days=diff_days,birthday_num=(current_year-year))
 
         handler_input.response_builder.speak(speak_output)
 
