@@ -28,7 +28,7 @@ Start by using the AttributesManager to save the user’s birthday in Cake Walk.
 ask-sdk-s3-persistence-adapter
 ```
 
-Your requirements.text file should now look like:
+Your requirements.txt file should now look like:
 
 ```
 boto3==1.9.216
@@ -50,10 +50,20 @@ The new dependency allows you to use the AttributesManager to save and read user
 ```py
 import os
 from ask_sdk_s3.adapter import S3Adapter
-s3_adapter = S3Adapter(bucket_name=os.environ["S3_PERSISTENCE_BUCKET"])
+s3_adapter = S3Adapter(bucket_name="NAME_OF_YOUR_BUCKET_HERE")
 ```
 
-**h.** In the **lambda_function.py** file, find the line that begins **from ask_sdk_core.skill_builder import SkillBuilder**. Replace this line with the following code:
+**h.** We need to update the name of the bucket we are using. To view available buckets provided by Amazon S3, click **Media Storage: S3 [0.0/5GB]** at the bottom left corner of the screen.
+
+![](./media_storage.PNG)
+
+**i.** Expand the menu on the left by clicking the small arrow at the top left of the screen, and click **Buckets**. We will be using the first bucket as shown below.
+
+![](./s3_buckets.PNG)
+
+**j.** In the code from step g, replace **NAME_OF_YOUR_BUCKET_HERE** with the name of the bucket found in step h.
+
+**k.** In the **lambda_function.py** file, find the line that begins **from ask_sdk_core.skill_builder import SkillBuilder**. Replace this line with the following code:
 
 ```py
 from ask_sdk_core.skill_builder import CustomSkillBuilder
@@ -66,7 +76,7 @@ import logging
 import ask_sdk_core.utils as ask_utils
 import os
 from ask_sdk_s3.adapter import S3Adapter
-s3_adapter = S3Adapter(bucket_name=os.environ["S3_PERSISTENCE_BUCKET"])
+s3_adapter = S3Adapter(bucket_name=os.environ["NAME_OF_YOUR_BUCKET_HERE"])
 
 from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
@@ -79,13 +89,13 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 ```
 
-**i.** In the **lambda_function.py** file, scroll all the way down to find the line that begins **sb = SkillBuilder()**. Replace this line with the following code:
+**l.** In the **lambda_function.py** file, scroll all the way down to find the line that begins **sb = SkillBuilder()**. Replace this line with the following code:
 
 ```py
 sb = CustomSkillBuilder(persistence_adapter=s3_adapter)
 ```
 
-**j.** Click **Save**.
+**m.** Click **Save**.
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-1e.png)
 
