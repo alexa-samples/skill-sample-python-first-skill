@@ -51,7 +51,7 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 
 **f.** Choose the **Hello World Skill** template.
 
-![](hello_world_template.png)
+![](./hello_world_template.png)
 
 **g.** At the top of the page, click **Create skill**.
 
@@ -70,7 +70,7 @@ The first thing a user will want to do with the skill is open it. On the front e
 
 **a.** Open the Cake Walk skill in the Alexa developer console. The Build tab should automatically be opened. This is where the front end user interaction is configured. Click the Invocation tab in the ribbon on the left. Under **Skill Invocation Name**, change the existing text to "cake walk".
 
-![](cake_walk_invocation.png)
+![](./cake_walk_invocation.png)
 
 **b.** Click **Save Model**.
 
