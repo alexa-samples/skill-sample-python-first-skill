@@ -140,19 +140,13 @@ Notice that the text does not include punctuation.
 > **When finished, the Cake Walk skill will be able to capture any birthday.**
 
 From this utterance, there are three key pieces of information to collect: month, day, and year. These are called slots. You need to let Alexa know which words are slots and what kind of slots they are.
-Start with the month slot. In the utterance, you will replace the word representing the month (November) with the word **month** in curly brackets ({ }). This creates a slot called month. The utterance will then look like this: **I was born on {month} seventh nineteen eighty three**
-There are two ways to create a slot. The first way is to select the word in the sample utterance where the slot should go and type the name of the slot in curly brackets (for example, **{month}**).
-The second way is to select the word in the sample utterance and use the **Select an Existing Slot** dialog box when it appears. In the dialog box, click the field under **Create a new slot**, type the name of the slot without curly brackets (for example, **month**), and click **Add**.
+Start with the month slot. In the utterance, you will replace the word representing the month (November) with the word **month** in curly brackets ({ }). This creates a slot called month. The utterance will then look like this: **I was born on {month} seventh nineteen eighty three**. The slot is automatically created when the closing curly brace is typed. Once this utterance is added, a list of slots appears below the list of utterances.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2e2.png)
-
-**f.** In the utterance, use either method of creating a slot to create a slot called **month** over the word **November**.
-
-**g.** Repeat this process for the other variable pieces of information (day and year).
+**f.** Repeat this process for the other variable pieces of information (day and year).
 Your utterance should now look like this: **I was born on {month} {day} {year}**
-What if the user omits the words _I was born on_? Account for this by adding a second utterance with only the slots.
+What if the user omits the words _I was born on_? Account for this by adding a second utterance with only the slots: **{month} {day} {year}**
 
-**h.** In the **Sample Utterances** field, type the following, and then press **ENTER** or click the + icon: **{month} {day} {year}**
+**g.** In the **Sample Utterances** field, type the following, and then press **ENTER** or click the + icon: **{month} {day} {year}**
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2h.png)
 
@@ -160,13 +154,13 @@ What if the user omits the words _I was born on_? Account for this by adding a s
 
 Now, you should account for a few other potential slot combinations.
 
-**i.** Enter each of the examples below as sample utterances. When you are finished, you should have six utterances.
-{month} {day}
-{month} {day} {year}
-{month} {year}
-I was born on {month} {day}
-I was born on {month} {day} {year}
-I was born in {month} {year}
+**h.** Enter each of the examples below as sample utterances. When you are finished, you should have six utterances.
+> {month} {day}
+> {month} {day} {year}
+> {month} {year}
+> I was born on {month} {day}
+> I was born on {month} {day} {year}
+> I was born in {month} {year}
 
 You have let Alexa know what slots need to be collected (and covered some of the different patterns users might provide that information in). Now you need to define exactly what those slots are by assigning a slot type to each slot.
 
@@ -182,18 +176,18 @@ If an applicable built-in slot does not exist, create a custom slot and define t
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2i2.png)
 
-**j.** To the right of the **month** slot, select **AMAZON.Month** from the **Slot Type** drop-down menu.
+**i.** To the right of the **month** slot, select **AMAZON.Month** from the **Slot Type** drop-down menu.
 
-**k.** For the **day** slot, select **AMAZON.Ordinal** as the slot type.
+**j.** For the **day** slot, select **AMAZON.Ordinal** as the slot type.
 
-**l.** For the **year** slot, select **AMAZON.FOUR_DIGIT_NUMBER** as the slot type.
+**k.** For the **year** slot, select **AMAZON.FOUR_DIGIT_NUMBER** as the slot type.
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2j.png)
 
 You have created an intent to collect the user's birthday.
 
 But what about a user who doesn't respond with all three slot values? For example, a user who responds, "In July." Let's take a look at solving that problem.
 
-**m.** At the top of the page, click **Save Model**.
+**l.** At the top of the page, click **Save Model**.
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2m.png)
 
@@ -259,7 +253,7 @@ If you look at the code, you will notice the **HelloWorldIntentHandler**. But yo
 
 **c.** Within the **CaptureBirthdayIntentHandler**, on the line that begins **return ask_utils.is_intent_name("HelloWorldIntent")(handler_input)**, change '**HelloWorldIntent**' to '**CaptureBirthdayIntent**'
 
-This change ensures that the **canHandle()** function will be invoked when a **CaptureBirthdayIntent** request comes through. 
+This change ensures that the **canHandle()** function will be invoked when a **CaptureBirthdayIntent** request comes through.
 
 Your `CaptureBirthdayIntentHandler ` should now look like:
 
@@ -286,9 +280,7 @@ Now you need to update the logic within the handler so Alexa will confirm to the
 
 Start by creating three variables in the handler to save the slots the skill is collecting.
 
-**d.** Within the **CaptureBirthdayIntentHandler**, find the line that begins **def handle(self, handler_input):**. Create a new line _below_it.
-
-**e.** Copy and paste the following code on the new line:
+**d.** Within the **CaptureBirthdayIntentHandler**, find the line that begins **def handle(self, handler_input):**. Create a new line below it. Copy and paste the following code at the beginning of the handle function.
 
 ```py
         slots = handler_input.request_envelope.request.intent.slots
@@ -297,7 +289,7 @@ Start by creating three variables in the handler to save the slots the skill is 
         day = slots["day"].value
 ```
 
-Next, update the **speak_output**. To do this, we use string interpolation to substitute values of our variables into placeholders in our string. While Python supports multiple ways to do this, we will use .format() function to replace placeholder values inside braces {} with the values of our variables.
+**e.** Next, update the **speak_output**. To do this, we use string interpolation to substitute values of our variables into placeholders in our string. While Python supports multiple ways to do this, we will use .format() function to replace placeholder values inside braces {} with the values of our variables.
 
 This allows you to drop the new variables into a text string.
 
@@ -395,6 +387,6 @@ However, while your skill can ask for a user’s birthday, your skill doesn’t 
 ## Code
 If your skill isn’t working or you’re getting some kind of syntax error, download the code sample in Python from the link below. Then, go to the Code tab in the Alexa developer console and copy and paste the code into the **lambda_function.py** file. Be sure to save and deploy the code before testing it.
 
- [Python Github Code Sample, Module 2: Collecting Slots Turn by Turn](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-2) 
+ [Python Github Code Sample, Module 2: Collecting Slots Turn by Turn](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-2)
 
  [Continue to module 3](https://github.com/alexa/skill-sample-python-first-skill/tree/master/module-3)

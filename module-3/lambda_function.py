@@ -8,7 +8,7 @@ import logging
 import ask_sdk_core.utils as ask_utils
 import os
 from ask_sdk_s3.adapter import S3Adapter
-s3_adapter = S3Adapter(bucket_name=os.environ["S3_PERSISTENCE_BUCKET"])
+s3_adapter = S3Adapter(bucket_name="NAME_OF_YOUR_BUCKET_HERE")
 
 from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler

@@ -24,7 +24,7 @@ handlerInput.requestEnvelope.context.System.device.deviceId
 >
 > **device_id = ask_sdk_core.utils.request_util.get_device_id(handler_input)**
 >
-> *For additional information, refer to  [ASK SDK Python Utilities. ](https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/api/core.html#module-ask_sdk_core.utils.predicate)*
+> *For additional information, refer to  [ASK SDK Python Utilities]. (https://alexa-skills-kit-python-sdk.readthedocs.io/en/latest/api/core.html#module-ask_sdk_core.utils.predicate)*
 
 **a.** In the developer console, click the **Code** tab, then click on the file **requirements.txt**
 
@@ -98,7 +98,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
 Now that we have the Device ID, API endpoint, and the access token, we are ready to call the Alexa Settings API to get the user time zone.
 
 ## Step 2: Using the Alexa Settings API to retrieve the user time zone
-There’s a chance that an error can happen when the code makes a call to the Alexa Settings API. For example, if the API takes too long to respond, the code could time out. Therefore, you need to wrap the code in a **try_catch_**_ block. A _**_try_catch** block is a way to ensure the skill code doesn’t crash if it encounters an error. You will wrap the code that _could_ crash in a **try** block. If the code within that block crashes, the **catch** block will run to handle errors.
+There’s a chance that an error can happen when the code makes a call to the Alexa Settings API. For example, if the API takes too long to respond, the code could time out. Therefore, you need to wrap the code in a **try/catch block**. A try/catch block is a way to ensure the skill code doesn’t crash if it encounters an error. You will wrap the code that _could_ crash in a **try** block. If the code within that block crashes, the **catch** block will run to handle errors.
 
 You want to know the time zone for the user’s Alexa-enabled device. In the **try** block, use **serviceClientFactory** to get the settings service client—upsServiceClient—and pass the device ID to the **getSystemTimeZone** function to get the time zone. The **catch** block will log an error message using **console.log** and return an error message response that Alexa will say to the user.
 
@@ -354,12 +354,7 @@ If it is the user’s birthday, you want the skill to wish them happy birthday. 
         speak_output = “Happy {}th birthday!”.format(str(current_year - year))
         if now_date != next_birthday:
             diff_days = abs((now_date - next_birthday).days)
-            speak_output = “Welcome back. It looks like there are \
-                            {days} days until your {birthday_num}th\
-                            birthday”.format(
-                                days=diff_days,
-                                birthday_num=(current_year-year)
-                            )
+            speak_output = “Welcome back. It looks like there are {days} days until your {birthday_num}th birthday”.format(days=diff_days,birthday_num=(current_year-year))
 ```
 
 **b.** Within the **HasBirthdayLaunchRequestHandler**, remove the comment that begins with **# TODO:: Say happy birthday on the user’s birthday**. We’ve just added this functionality.
@@ -430,12 +425,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         speak_output = "Happy {}th birthday!".format(str(current_year - year))
         if now_date != next_birthday:
             diff_days = abs((now_date - next_birthday).days)
-            speak_output = "Welcome back. It looks like there are \
-                            {days} days until your {birthday_num}th\
-                            birthday".format(
-                                days=diff_days,
-                                birthday_num=(current_year-year)
-                            )
+            speak_output = speak_output = "Welcome back. It looks like there are {days} days until your {birthday_num}th birthday".format(days=diff_days,birthday_num=(current_year-year))
 
         handler_input.response_builder.speak(speak_output)
 

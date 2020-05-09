@@ -14,7 +14,7 @@ Once you’ve completed this course; you’ll have built a skill that is useful,
 ### About this module
 If this is your first time building an Alexa skill, we recommend completing this module and the next three, which walk you through all the necessary steps.
 Don’t worry if you get stuck along the way or if your code breaks. At the end of each module, the complete working code solution is provided for you under the **Code** heading.
-If you’re already up to speed on the fundamentals of Alexa skill building and want to make your skill more conversational, please take a look at the  [conversational design course](http://alexa.design/cdw) .
+If you’re already up to speed on the fundamentals of Alexa skill building and want to make your skill more conversational, please take a look at the  [conversational design course](http://alexa.design/cdw).
 
 ### Features covered
 * Utterances
@@ -49,7 +49,11 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 
 ![](http://alexa-github.s3.amazonaws.com/alexa-hosted-python.png)
 
-**f.** At the top of the page, click **Create skill**.
+**f.** Choose the **Hello World Skill** template.
+
+![](./hello_world_template.PNG)
+
+**g.** At the top of the page, click **Create skill**.
 
 ![](http://alexa-github.s3.amazonaws.com/create-skill-button.png)
 
@@ -62,11 +66,18 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 > ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-2f-3.png)
 
 ## Step 3: Greet the user
-The first thing a user will want to do with the skill is open it. The intent of opening the skill is built into the experience, so you don’t need to define this intent in your front end.
+The first thing a user will want to do with the skill is open it. On the front end, we will need to update the intent phrase that will be used to open this skill. You will also need to respond to the intent in your backend. In this step, you will update the invocation name and your backend code to greet the user when they open the skill.
 
-However, you need to respond to the intent in your backend. In this step, you will update your backend code to greet the user when they open the skill.
+**a.** Open the Cake Walk skill in the Alexa developer console. The Build tab should automatically be opened. This is where the front end user interaction is configured. Click the Invocation tab in the ribbon on the left. Under **Skill Invocation Name**, change the existing text to "cake walk".
 
-**a.** Open the Cake Walk skill in the Alexa developer console. Click the Code tab. The code editor opens the lambda_function.py file.
+
+![](./cake_walk_invocation.PNG)
+
+**b.** Click **Save Model**.
+
+**c.** Click **Build Model**.
+
+**d.** Click the Code tab. The code editor opens the lambda_function.py file.
 
 ![](http://alexa-github.s3.amazonaws.com/python-code-tab.png)
 
@@ -86,7 +97,7 @@ Within the **LaunchRequestHandler** object, find the **handle()** function. This
 
 Within the **handle()** function, find the line that begins **speak_output =**. This variable contains the string of words the skill should say back to the user when they launch the skill. Let’s change what it says to make sense for this skill.
 
-**b.** Within the **LaunchRequestHandler** object, find the **handle()** function, and the line that begins **speak_output =**. Replace that line with the following:
+**e.** Within the **LaunchRequestHandler** object, find the **handle()** function, and the line that begins **speak_output =**. Replace that line with the following:
 
 ```python
 speak_output = "Hello! Welcome to cake walk. That was a piece of cake! Bye!"
@@ -96,7 +107,7 @@ speak_output = "Hello! Welcome to cake walk. That was a piece of cake! Bye!"
 >
 > **When you replace existing text or add new text to the code, blank lines may be introduced just before or after the text. Blank lines will not impact the code, but you may remove them.**
 >
-> **You may also notice your lines of code are not indented the same as code snippets in this course. This will also not impact the code, but you can use the TAB key to indent code if you would like.**
+> **You may also notice your lines of code are not indented the same as code snippets in this course. However, tabbing is important in Python so be careful when using tabs in your code.**
 
 Within the **LaunchRequestHandler**, on the line under the speech text you just replaced, look for **handlerInput.responseBuilder**. This piece of the SDK will help build the response to the user.
 
@@ -105,9 +116,9 @@ On the next line, look for **.speak(speak_output)**. Note the **speak_output** v
 Next, look for the **.ask()** function within **responseBuilder**. (Be sure you are looking in the **LaunchRequestHandler**, within the **handle()** function.)
 If the skill was supposed to listen for the user’s response, you would use this. In this case, you want the skill to speak and then exit. Therefore, let’s omit this line of code for now.
 
-**c.** Within the **LaunchRequestHandler**, in the **handle()** function, find the line that begins **.ask()**. Add a **#** at the beginning of the line. This turns the line into a comment, meaning the line is ignored when the code runs.
+**f.** Within the **LaunchRequestHandler**, in the **handle()** function, find the line that begins **.ask()**. Add a **#** at the beginning of the line. This turns the line into a comment, meaning the line is ignored when the code runs.
 
-**d.** Next, look for the **.response()** function just below the line you commented out in the **LaunchRequestHandler**. This converts the **responseBuilder’s** work into the response that the skill will return. Remember the line that started with return? Think of it like hitting the Send button—it sends the response.
+**g.** Next, look for the **.response()** function just below the line you commented out in the **LaunchRequestHandler**. This converts the **responseBuilder’s** work into the response that the skill will return. Remember the line that started with return? Think of it like hitting the Send button—it sends the response.
 
 Your **LaunchRequestHandler** should now look like:
 
@@ -132,11 +143,11 @@ class LaunchRequestHandler(AbstractRequestHandler):
 ```
 You have built the code that will handle a LaunchRequest for this skill. Before doing anything else, save your changes and deploy the code.
 
-**e.** Click **Save**.
+**h.** Click **Save**.
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-3-save.png)
 
-**f.** Click **Deploy**.
+**i.** Click **Deploy**.
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-3-deploy.png)
 
@@ -160,7 +171,7 @@ There are two ways to test your skill in the console. With the first method, typ
 
 So far, the skill has one intent: **LaunchRequest**. This function responds to the user when they ask Alexa to open or launch the skill. The user will say, “Alexa, open Cake Walk.” Cake Walk is the name of your skill and was automatically set as the invocation name for the skill. You can change the invocation name, but let’s leave it as is for this exercise.
 
-**c.** Test the skill. Type **open Cake Walk** (not case sensitive) into the box at the top left and press **ENTER**, or click and hold the microphone icon and say, “**Open Cake Walk**.”
+**a.** Test the skill. Type **open Cake Walk** (not case sensitive) into the box at the top left and press **ENTER**, or click and hold the microphone icon and say, “**Open Cake Walk**.”
 
 > **When testing your skill in the Alexa developer console, you don’t need to provide the wake word (usually “Alexa”). Typing or saying, “Open Cake Walk” is fine. When testing on an Alexa-enabled device, you need the wake word: “Alexa, open Cake Walk.”**
 
