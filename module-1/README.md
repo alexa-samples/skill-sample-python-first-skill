@@ -49,7 +49,9 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 
 ![](http://alexa-github.s3.amazonaws.com/alexa-hosted-python.png)
 
-**f.** At the top of the page, click **Create skill**.
+**f.** Under **Choose a template to add to your skill**, select **Hello World Skill** template.
+
+**g.** At the top of the page, click **Create skill**.
 
 ![](http://alexa-github.s3.amazonaws.com/create-skill-button.png)
 
