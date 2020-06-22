@@ -1,6 +1,6 @@
 ## Using the Alexa Settings API
-In this section, you will enable the Cake Walk skill to calculate the number of days until the user’s next birthday.
-Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Walk skill.
+In this section, you will enable the Cake Time skill to calculate the number of days until the user’s next birthday.
+Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Time skill.
 
 To calculate the number of days until the user’s next birthday accurately, we need additional information, like current date, and user’s time zone. Luckily, you can use the Alexa Settings API to get this information. To do that, we need to pass the following information to the Alexa Settings API:
 
@@ -12,7 +12,7 @@ To calculate the number of days until the user’s next birthday accurately, we 
 We will retrieve items 1-3 in Step 1 below, and tackle the import of libraries in in Step 3.
 
 ## Step 1: Get Device ID, API endpoint, and Authorization Token for Alexa Settings API
-To query the Alexa Settings API, you need to provide the device ID for the Alexa-enabled device that prompted the Cake Walk skill to open.
+To query the Alexa Settings API, you need to provide the device ID for the Alexa-enabled device that prompted the Cake Time skill to open.
 
 The device ID is provided in every request that comes to the skill code. We will traverse the request object to get the device ID using the **requestEnvelope:**
 
@@ -172,7 +172,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
 
 **b.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/6/chapter6-1d.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/6/chapter6-1d.png)
 
 
 ## Step 3: Retrieve the current date
@@ -221,10 +221,10 @@ logger.setLevel(logging.INFO)
 
 **c.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/6/chapter6-1d.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/6/chapter6-1d.png)
 
 ## Step 4: Extract the month, day, and year
-You would like the Cake Walk skill to wish the user happy birthday at midnight in their time zone. This could be a problem because **currentDateTime** provides the date and time to the second. The Cake Walk skill does not ask the user to provide their birthday down to the second. Therefore, the code needs to extract just the month, day, and year from **currentDateTime**, and then re-create the date without the seconds included.
+You would like the Cake Time skill to wish the user happy birthday at midnight in their time zone. This could be a problem because **currentDateTime** provides the date and time to the second. The Cake Time skill does not ask the user to provide their birthday down to the second. Therefore, the code needs to extract just the month, day, and year from **currentDateTime**, and then re-create the date without the seconds included.
 
 **a.** Within the **HasBirthdayLaunchRequestHandler**, in the **handle()** function, create a new line just _below_ the code you just added (**now_time =**). Copy and paste in the following code:
 
@@ -292,7 +292,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
 
 **b.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/6/chapter6-1d.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/6/chapter6-1d.png)
 
 ## Step 5: Determine the user's next birthday
 Now the code needs to determine the user's next birthday. First, the code will combine the year and month of their birthday with the current year. Second, the code will determine if the user's birthday has already passed this calendar year. If it has, the code will add a year to the value of their next birthday.
@@ -322,6 +322,8 @@ day = int(attr['day'])
 ```
 
 **c.** Click **Save**.
+
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/6/chapter6-1d.png)
 
 ## Step 6: Compute difference between current date and user's next birthday
 Now that the code has the current date and the date of the user's next birthday, it's time to compute the difference. First, the code needs to convert each date into Unix epoch time (the number of seconds elapsed since 00:00:00 January 1, 1970, Coordinated Universal Time (UTC), minus leap seconds).
@@ -444,13 +446,13 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
 
 **c.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/6/chapter6-1d.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/6/chapter6-1d.png)
 
 ## Step 7: Save, deploy, and test
 
 **a.** Click **Deploy** to build the skill.
 
-**b.** Go to the **Test** tab, open the skill, and see if Alexa responds by telling you how many days until your next birthday. If she does, congratulations!
+**b.** Go to the **Test** tab, open the skill, and see if Alexa responds by telling you how many days until your next birthday. If it does, congratulations!
 
 ## Code
 If your skill isn’t working or you’re getting some kind of syntax error, download the code sample in Python from the link below. Then, go to the Code tab in the Alexa developer console and copy and paste the code into the **lambda_function.py** file. Be sure to save and deploy the code before testing it.

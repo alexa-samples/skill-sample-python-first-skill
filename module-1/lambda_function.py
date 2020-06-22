@@ -27,7 +27,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello! Welcome to cake walk. That was a piece of cake! Bye!"
+        speak_output = "Hello! Welcome to Cake Time. That was a piece of cake! Bye!"
 
         return (
             handler_input.response_builder

@@ -34,7 +34,7 @@ class LaunchRequestIntentHandler(AbstractRequestHandler):
         return is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        speech = "Hello! Welcome to Cake walk. What is your birthday?"
+        speech = "Hello! Welcome to Cake Time. What is your birthday?"
         reprompt = "I was born Nov. 6th, 2015. When were you born?"
 
         handler_input.response_builder.speak(speech).ask(reprompt)

@@ -27,7 +27,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello! This is Cake walk. What is your birthday?"
+        speak_output = "Hello! This is Cake Time. What is your birthday?"
         reprompt_text = "I was born Nov. 6th, 2015. When are you born?"
 
         return (

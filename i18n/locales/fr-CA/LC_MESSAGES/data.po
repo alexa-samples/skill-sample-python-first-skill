@@ -18,7 +18,7 @@ msgstr ""
 "Language: fr_CA\n"
 
 #: alexa\data.py:3
-msgid "Hello! Welcome to Cake walk. What is your birthday?"
+msgid "Hello! Welcome to Cake Time. What is your birthday?"
 msgstr ""
 "Bonjour! Bienvenue sur le Génie des Fêtes. Quelle est votre date de "
 "naissance ?"
