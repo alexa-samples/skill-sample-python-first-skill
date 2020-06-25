@@ -1,6 +1,6 @@
 from gettext import gettext as _
 
-WELCOME_MSG = _("Hello! Welcome to Cake walk. What is your birthday?")
+WELCOME_MSG = _("Hello! Welcome to Cake Time. What is your birthday?")
 WELCOME_REMPROMPT_MSG = _("I was born Nov. 6th, 2014. When were you born?")
 WELCOME_BACK_MSG = _(
     "Welcome back. It looks like there is {} day until your {}th birthday.")

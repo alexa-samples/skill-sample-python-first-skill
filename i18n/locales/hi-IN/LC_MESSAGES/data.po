@@ -18,8 +18,8 @@ msgstr ""
 "Language: hi_IN\n"
 
 #: alexa\data.py:3
-msgid "Hello! Welcome to Cake walk. What is your birthday?"
-msgstr "नमस्ते. Cake Walk में आपका स्वागत. आपका जनमदिन कब हैं?"
+msgid "Hello! Welcome to Cake Time. What is your birthday?"
+msgstr "नमस्ते. Cake Time में आपका स्वागत. आपका जनमदिन कब हैं?"
 
 #: alexa\data.py:4
 msgid "I was born Nov. 6th, 2014. When were you born?"

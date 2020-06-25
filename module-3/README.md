@@ -1,22 +1,22 @@
 ## Adding memory to your skill
-In this section, you will enable the Cake Walk skill to remember the user’s birthday. What’s the point of the skill collecting information if the skill won’t remember it?
+In this section, you will enable the Cake Time skill to remember the user’s birthday. What’s the point of the skill collecting information if the skill won’t remember it?
 
-Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Walk skill.
+Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Time skill.
 
 ## Step 1: Use Amazon S3 to save and read data
 Right now, you have the birthday, month, and year within the code. The problem is that the skill forgets these values when the code finishes running. To solve the problem, you are going to save the values to Amazon S3. This way, the skill can read them from session to session.
 
 The SDK provides a useful mechanism for saving information across sessions: the AttributesManager. With the manager, your read/write code can remain the same, even if you change where you save your data later.
 
-The backend code for Alexa skills can live on any HTTPS server. Most of the time, Alexa developers write and host their backend code using AWS. While building Cake Walk, you have been writing code in the developer console using an Alexa-hosted skill. That code is running on the AWS Free Tier, which has limitations. Alexa-hosted skills are great for learning to build and even to publish simple skills before you have a large audience. However, if your skill becomes popular, you may want to consider moving your backend code over to your own AWS resources.
+The backend code for Alexa skills can live on any HTTPS server. Most of the time, Alexa developers write and host their backend code using AWS. While building Cake Time, you have been writing code in the developer console using an Alexa-hosted skill. That code is running on the AWS Free Tier, which has limitations. Alexa-hosted skills are great for learning to build and even to publish simple skills before you have a large audience. However, if your skill becomes popular, you may want to consider moving your backend code over to your own AWS resources.
 
 How does this relate to adding memory to your skill? When using an Alexa-hosted skill for your backend code, it will be stored in Amazon S3. If you choose to build your code on your own AWS resources, it may make more sense to use Amazon DynamoDB. Don’t worry if you don’t know the difference between the two. The important thing to know is that the backend code you are writing now will work with Amazon S3, and it will only require minor changes to work with DynamoDB if you decide to migrate to your own AWS resources later.
 
-Start by using the AttributesManager to save the user’s birthday in Cake Walk.
+Start by using the AttributesManager to save the user’s birthday in Cake Time.
 
 **a.** In the developer console, click the **Code** tab.
 
-**b.** Double-click the**requirements.txt** file in the pane on the left. The file opens in the editor.
+**b.** Double-click the **requirements.txt** file in the pane on the left. The file opens in the editor.
 
 ![](http://alexa-github.s3.amazonaws.com/python-requirements-1.png)
 
@@ -40,7 +40,7 @@ ask-sdk-s3-persistence-adapter
 
 **e.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-1e.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-1e.png)
 
 **f.** Switch back to the other file by clicking the **lambda_function.py** tab.
 The new dependency allows you to use the AttributesManager to save and read user data using Amazon S3. Now, you need to import that dependency to the code. To do this, you need to let the code know the dependency exists.
@@ -87,7 +87,7 @@ sb = CustomSkillBuilder(persistence_adapter=s3_adapter)
 
 **j.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-1e.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-1e.png)
 
 You are now set up to use AttributesManager to save and read data to Amazon S3. Later, if you decide to move your skill’s backend code to your own AWS resources, you will reverse the changes made in this step.
 
@@ -100,7 +100,7 @@ Now you will modify the code to save the user’s birthday. On the **Code** tab,
 attributes_manager = handler_input.attributes_manager
 ```
 
-The Cake Walk skill code receives the year, month, and day. You need to tell Amazon S3 to save these values. The code tells the AttributesManager what the data is, and the manager sends it to Amazon S3.
+The Cake Time skill code receives the year, month, and day. You need to tell Amazon S3 to save these values. The code tells the AttributesManager what the data is, and the manager sends it to Amazon S3.
 
 **b.** Within the **CaptureBirthdayIntentHandler**, find the line you just added (it begins **attributes_manager = handler_input.attributes_manager**). Create a new line just _below_ it, and copy and paste in the following code:
 
@@ -170,10 +170,10 @@ class CaptureBirthdayIntentHandler(AbstractRequestHandler):
 
 **e.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-1e.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-1e.png)
 
 ## Step 3: Read stored data
-Great, now the user’s birthday is saved to Amazon S3. However, now the skill needs to be updated so the next time the user opens Cake Walk, Alexa knows the user’s birthday information is stored and she doesn’t have to ask for it. To do this, you will modify the code to read the data stored in Amazon S3 before asking the user for their birthday. If the data exists, Alexa doesn’t need to ask for it. If the data isn’t there, Alexa will ask for the information.
+Great, now the user’s birthday is saved to Amazon S3. However, now the skill needs to be updated so the next time the user opens Cake Time, so the skill knows the user’s birthday information is stored and doesn’t have to ask for it. To do this, you will modify the code to read the data stored in Amazon S3 before asking the user for their birthday. If the data exists, the skill doesn’t need to ask for it. If the data isn’t there, it will ask for the information.
 
 > **An Amazon S3 bucket is a public cloud storage resource. A bucket is similar to a file folder for storing objects, which consists of data and descriptive metadata.**
 
@@ -235,30 +235,30 @@ lambda_handler = sb.lambda_handler()
 
 **c.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-1e.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-1e.png)
 
 **d.** Click **Deploy**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-3f.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-3f.png)
 
 # How to delete or reset the user’s birthday
 When testing, you may need to delete or reset the user’s birthday. There are two ways to do this.
 
-Use the first method in the simulator on the **Test** tab of the Alexa developer console. Type or say, "Alexa, tell Cake Walk I was born on {month} {day} {year}."
+Use the first method in the simulator on the **Test** tab of the Alexa developer console. Type or say, "Alexa, tell Cake Time I was born on {month} {day} {year}."
 
 The second method is to delete the saved information from Amazon S3 by using the following steps:
 
 **a.** While on the **Code** tab, click **Media storage** on the bottom left-hand corner of the screen. The S3 Management Console opens.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-reset-a.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/chapter5-reset-a.png)
 
 **b.** At the top of the page, find the breadcrumbs. Click the breadcrumb that starts **amzn-1-ask-skill**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-reset-b.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-reset-b.png)
 
 **c.** Click on the check box next to the file(s) that begins with **amzn1.ask.account**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/5/chapter5-reset-c.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/5/chapter5-reset-c.png)
 
 **d.** Click **Actions**.
 
@@ -267,24 +267,24 @@ The second method is to delete the saved information from Amazon S3 by using the
 **f.** Click **Delete**. The user’s birthday is deleted.
 
 ## Wrap-up
-Here’s a summary of what you did in this section. First, you adjusted the Cake Walk skill to use the AttributesManager to save and read user information to Amazon S3. Then, you added code to the **CaptureBirthdayIntentHandler** to save the user’s birthday. Lastly, you created a new handler (**HasBirthdayLaunchRequestHandler**) so Alexa doesn’t repeatedly ask the same user for their birthday.
+Here’s a summary of what you did in this section. First, you adjusted the Cake Time skill to use the AttributesManager to save and read user information to Amazon S3. Then, you added code to the **CaptureBirthdayIntentHandler** to save the user’s birthday. Lastly, you created a new handler (**HasBirthdayLaunchRequestHandler**) so Alexa doesn’t repeatedly ask the same user for their birthday.
 
 It’s time to test, so click the **Test** tab, then follow the steps below.
 
 ### Step 1: Launch the skill
-Say “Open Cake Walk”.
+Say “Open Cake Time”.
 
-Alexa should respond, “Hello! This is Cake walk. When is your birthday?”
+Alexa should respond, “Hello! This is Cake Time. When is your birthday?”
 
 ### Tell Alexa your birthday
-Feel free to try giving Alexa partial information and ensure she asks for and collects the missing information.
+Feel free to try giving partial information and ensure the skill asks for and collects the missing information.
 
-Once she has your birth month, day, and year, Alexa should respond, “Thanks, I’ll remember that your birthday is {month} {day} {year}.”
+Once the skill has your birth month, day, and year, it should respond, “Thanks, I’ll remember that your birthday is {month} {day} {year}.”
 
-The session ends. At this point, without the code you added in this section, the next time you invoke the skill, Alexa would ask for your birthday again. Now, Alexa stores this information.
+The session ends. At this point, without the code you added in this section, the next time you invoke the skill, the skill would ask for your birthday again. Now, the skill stores this information.
 
 ### Launch the skill a second time
-Say “Open Cake Walk”.
+Say “Open Cake Time”.
 
 Alexa should respond, “Welcome back. It looks like there are X more days until your y-th birthday.”
 

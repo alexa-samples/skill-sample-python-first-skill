@@ -1,17 +1,17 @@
 ## Collecting slots turn-by-turn with auto-delegation
-In the previous section, you built an Alexa skill that says, “Hello! Welcome to Cake Walk. That was a piece of cake! Bye!” In this section, you will make the skill more useful by having it ask the user for their birthday. When the user responds, the skill will understand and repeat the user’s birthday back to them.
+In the previous section, you built an Alexa skill that says, “Hello! Welcome to Cake Time. That was a piece of cake! Bye!” In this section, you will make the skill more useful by having it ask the user for their birthday. When the user responds, the skill will understand and repeat the user’s birthday back to them.
 
 To do this, you will need to use utterances, intents, and slots. You will also learn how to use dialog management to have your skill automatically ask follow-up questions to collect required information. For example, if the user says, “I was born July 12th,” dialog management will automatically ask the user what year they were born.
 
-At the end of this module, your Cake Walk skill will be able to:
+At the end of this module, your Cake Time skill will be able to:
 * **Ask** the user a question
 * **Listen** for the answer
 * **Respond** to the user
 
-Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Walk skill.
+Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Time skill.
 
 ## Step 1: Ask the user for their birthday
-At the moment, the skill simply greets the user and exits. The welcome message helps set the context of the interaction—the user knows they are interacting with Cake Walk. Now you need to capture the user’s birthday to eventually calculate the number of days until the user’s next birthday. To do that, update the skill with programming logic that instructs Alexa to ask for the user’s birthday.
+At the moment, the skill simply greets the user and exits. The welcome message helps set the context of the interaction—the user knows they are interacting with Cake Time. Now you need to capture the user’s birthday to eventually calculate the number of days until the user’s next birthday. To do that, update the skill with programming logic that instructs Alexa to ask for the user’s birthday.
 
 ![](http://alexa-github.s3.amazonaws.com/python-code-tab.png)
 
@@ -22,7 +22,7 @@ Find the **LaunchRequestHandler**. Within the handler, the **speak_output** vari
 **b.** Within the **LaunchRequestHandler**, in the **handle()** function, find the line that begins with **speak_output =**. Replace that line with the following:
 
 ```py
-speak_output = "Hello! This is Cake walk. What is your birthday?"
+speak_output = "Hello! This is Cake Time. What is your birthday?"
 ```
 
 Your `LaunchRequestHandler` should now look like:
@@ -37,7 +37,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello! This is Cake walk. What is your birthday?"
+        speak_output = "Hello! This is Cake Time. What is your birthday?"
 
         return (
             handler_input.response_builder
@@ -66,7 +66,7 @@ The user may not have responded for a variety of reasons. The skill should pose 
 reprompt_text = "I was born Nov. 6th, 2014. When are you born?"
 ```
 
-Notice the reprompt gives an example of what Alexa expects the user to say by having Alexa provide her own birthday in the format she is looking for. Providing examples like this is a best practice.
+Notice the reprompt gives an example of what Alexa expects the user to say by having the skill provide Alexa's birthday in the format it is looking for. Providing examples like this is a best practice.
 
 > **Notice the numbers are spelled out in the reprompt text. You can use Speech Synthesis Markup Language (SSML) to have Alexa read "2014."**
 
@@ -86,7 +86,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello! This is Cake walk. What is your birthday?"
+        speak_output = "Hello! This is Cake Time. What is your birthday?"
         reprompt_text = "I was born Nov. 6th, 2015. When are you born?"
 
         return (
@@ -104,15 +104,15 @@ Before moving on, save and deploy your updated code.
 
 **g.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-3-save.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/3/building-a-skill-3-save.png)
 
 **h.** Click **Deploy**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-4j.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-4j.png)
 
 > **Get into the habit of saving and deploying your changes regularly to ensure you don't lose anything. Save as you go!**  
 
-The Cake Walk skill can now ask and listen, but it can't respond yet. You need to update our skill's front end before testing it. Specifically, you need to create an intent to interpret the user's response to the skill's question.
+The Cake Time skill can now ask and listen, but it can't respond yet. You need to update our skill's front end before testing it. Specifically, you need to create an intent to interpret the user's response to the skill's question.
 
 ## Step 2: Use an intent and slots to capture information
 Now make some adjustments to the skill's front end. Specifically, you need to create an intent that will interpret how the user responds to Alexa's question.
@@ -122,11 +122,12 @@ When you name an intent, think about what the intent is going to do. In this cas
 
 **b.** To the right of **Intents**, click **Add**. The Add Intent window opens.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2a.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/chapter4-2a.png)
+
 
 **c.** Select **Create custom intent** and enter the following text for the name of the intent: **CaptureBirthdayIntent**
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2c.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2c.png)
 
 **d.** Click **Create custom intent**. The intent is created.
 
@@ -135,16 +136,16 @@ When you name an intent, think about what the intent is going to do. In this cas
 **e.** In the **Sample Utterances** field, type the following, and then press **ENTER** or click the + icon: **I was born on November seventh nineteen eighty three**
 Notice that the text does not include punctuation.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2e.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2e.png)
 
-> **When finished, the Cake Walk skill will be able to capture any birthday.**
+> **When finished, the Cake Time skill will be able to capture any birthday.**
 
 From this utterance, there are three key pieces of information to collect: month, day, and year. These are called slots. You need to let Alexa know which words are slots and what kind of slots they are.
 Start with the month slot. In the utterance, you will replace the word representing the month (November) with the word **month** in curly brackets ({ }). This creates a slot called month. The utterance will then look like this: **I was born on {month} seventh nineteen eighty three**
 There are two ways to create a slot. The first way is to select the word in the sample utterance where the slot should go and type the name of the slot in curly brackets (for example, **{month}**).
 The second way is to select the word in the sample utterance and use the **Select an Existing Slot** dialog box when it appears. In the dialog box, click the field under **Create a new slot**, type the name of the slot without curly brackets (for example, **month**), and click **Add**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2e2.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2e2.png)
 
 **f.** In the utterance, use either method of creating a slot to create a slot called **month** over the word **November**.
 
@@ -154,25 +155,26 @@ What if the user omits the words _I was born on_? Account for this by adding a s
 
 **h.** In the **Sample Utterances** field, type the following, and then press **ENTER** or click the + icon: **{month} {day} {year}**
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2h.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2h.png)
 
 > **When entering a sample utterance, you may need to press ENTER twice for the utterance to be added. You can also click the + icon.**
 
 Now, you should account for a few other potential slot combinations.
 
 **i.** Enter each of the examples below as sample utterances. When you are finished, you should have six utterances.
-{month} {day}
-{month} {day} {year}
-{month} {year}
-I was born on {month} {day}
-I was born on {month} {day} {year}
-I was born in {month} {year}
+
+    {month} {day}
+    {month} {day} {year}
+    {month} {year}
+    I was born on {month} {day}
+    I was born on {month} {day} {year}
+    I was born in {month} {year}
 
 You have let Alexa know what slots need to be collected (and covered some of the different patterns users might provide that information in). Now you need to define exactly what those slots are by assigning a slot type to each slot.
 
 Scroll down the page to **Intent Slots**. This area displays the slots you have created.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2i.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2i.png)
 
 Slots are assigned from the **Slot Type** drop-down menu to the right of each slot.
 
@@ -180,14 +182,14 @@ There are two types of slot types: custom and built-in. Wherever possible, use b
 
 If an applicable built-in slot does not exist, create a custom slot and define the values it represents. For this course, you will only use built-in slots.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2i2.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2i2.png)
 
 **j.** To the right of the **month** slot, select **AMAZON.Month** from the **Slot Type** drop-down menu.
 
 **k.** For the **day** slot, select **AMAZON.Ordinal** as the slot type.
 
 **l.** For the **year** slot, select **AMAZON.FOUR_DIGIT_NUMBER** as the slot type.
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2j.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2j.png)
 
 You have created an intent to collect the user's birthday.
 
@@ -195,7 +197,7 @@ But what about a user who doesn't respond with all three slot values? For exampl
 
 **m.** At the top of the page, click **Save Model**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2m.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2m.png)
 
 ## Step 3: Use dialog management
 Slots can be required or optional. That is, if you need a given value from the user, you can designate a slot as required using dialog management. Marking a slot as required triggers Alexa to actively work to fill it. Start by making each of the slots required.
@@ -208,7 +210,7 @@ The **Alexa speech prompts** field appears. Here, you will enter text for Alexa 
 
 **c.** In the field, type **What month were you born in?** and then press **ENTER** or click the + icon.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-3c.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-3c.png)
 
 **d.** Repeat the process for the **day** and **year** slots.
 
@@ -228,28 +230,28 @@ Before moving on, notice the **HelloWorld** intent in the left-hand panel. That 
 
 Be careful to delete **HelloWorldIntent** and _not_ **CaptureBirthdayIntent**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-3e.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-3e.png)
 
 > **You may notice other intents (such as AMAZON.HelpIntent) were automatically added to your skill. These are required for every skill and provide the user a means to cancel, stop, and get help. Do not remove these.**
 
 **f.** At the top of the page, click **Save Model**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-2m.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-2m.png)
 
 **g.** Click **Build Model**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-3g.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/4/chapter4-3g.png)
 
 When you click **Build Model**, your skill starts to build the training data that will help Alexa know how to map what the user says to your skill's intents. It may take a minute for the model to build.
 
 At this point, your skill can ask and listen. Now, make it respond.
 
 ## Step 4: Define a new handler
-To make the Cake Walk skill respond, you need to update the backend.
+To make the Cake Time skill respond, you need to update the backend.
 
 **a.** Click the **Code** tab.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-4a.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/chapter4-4a.png)
 
 Remember modifying the **LaunchRequestHandler**? This time, you are going to build a new handler. This handler will acknowledge that the user provided their birthday and repeat the birthday back to the user.
 
@@ -282,7 +284,7 @@ class CaptureBirthdayIntentHandler(AbstractRequestHandler):
         )
 ```
 
-Now you need to update the logic within the handler so Alexa will confirm to the user that she heard their birthday. In this case, you will have Alexa read the birthday back to the user, like this: “Thanks, I'll remember that you were born on {month} {day} {year}.”
+Now you need to update the logic within the handler so the skill will confirm to the user that their birthday was heard correctly. In this case, you will have Alexa read the birthday back to the user, like this: “Thanks, I'll remember that you were born on {month} {day} {year}.”
 
 Start by creating three variables in the handler to save the slots the skill is collecting.
 
@@ -369,7 +371,7 @@ lambda_handler = sb.lambda_handler()
 
 ## Step 5: Test your skill
 
-It is time to test! The Cake Walk skill should now be able to do the following:
+It is time to test! The Cake Time skill should now be able to do the following:
 * **Ask** the user for their birthday
 * **Listen** to the answer from the user and automatically follow up with questions if any required slots (month, day, year) are missing
 * **Respond** to the user by repeating their birthday
@@ -378,9 +380,9 @@ Let's test the skill.
 **a.** Click the **Test** tab.
 Remember that you can test by typing what the user would say in the box at the top left, or you can speak to the skill by clicking and holding the microphone icon and speaking.
 
-**b.** Test your skill by opening Cake Walk and responding when Alexa asks for your birthday.
+**b.** Test your skill by opening Cake Time and responding when Alexa asks for your birthday.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/4/chapter4-5a.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/chapter4-5a.png)
 
 > **If you are testing by typing what the user would say, spell out the numbers (for example, November seventh nineteen eighty three). Otherwise, the numbers won't be understood. You may have noticed that numbers have been have purposefully spelled out throughout the course. This is only a requirement when typing. If you speak to the skill, the numbers are automatically converted.**
 
@@ -390,7 +392,7 @@ Go ahead and test what happens if you provide only the year, the year and the da
 ## Wrap-up
 At this point, your skill has become slightly more nuanced. It can ask the user for their birthday and repeat it back to the user. Congratulations!
 
-However, while your skill can ask for a user’s birthday, your skill doesn’t remember it the next time the skill is opened. It would be a better user experience if Cake Walk remembered the user’s birthday. In the next section, you will learn how to make your skill remember things.
+However, while your skill can ask for a user’s birthday, your skill doesn’t remember it the next time the skill is opened. It would be a better user experience if Cake Time remembered the user’s birthday. In the next section, you will learn how to make your skill remember things.
 
 ## Code
 If your skill isn’t working or you’re getting some kind of syntax error, download the code sample in Python from the link below. Then, go to the Code tab in the Alexa developer console and copy and paste the code into the **lambda_function.py** file. Be sure to save and deploy the code before testing it.

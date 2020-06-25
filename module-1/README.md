@@ -1,15 +1,15 @@
 ## Introduction
-In this module, you will build Cake Walk, a simple skill that asks the user for their birthday, remembers it, tells them how many days until their next birthday, and wishes them Happy Birthday on their birthday.
+In this module, you will build Cake Time, a simple skill that asks the user for their birthday, remembers it, tells them how many days until their next birthday, and wishes them Happy Birthday on their birthday.
 * asks the user for their birthday
 * remembers it
 * tells them how many days until their next birthday
 * wishes them Happy Birthday on their birthday
 
-In “Why develop skills with Alexa?” You saw what happens when a user interacts with a simple skill called “Hello World”. In the video below, let’s take a look at how users will interact with Cake Walk once you’ve built it:
+In “Why develop skills with Alexa?” You saw what happens when a user interacts with a simple skill called “Hello World”. In the video below, let’s take a look at how users will interact with Cake Time once you’ve built it:
 
-As you can see the skill is simple to use yet a bit complex to build. The burden is on us, the skill builder, to make the interaction simple and natural. One way to make it as natural as possible is to mimic human conversational patterns. Humans have memory so your skill should too. It would be frustrating if your best friend always had to ask your name (which may be a sign that they really aren’t your best friend at all). While you could build cake walk in a day, because of its complexity you’ll build cake walk over four modules in this course.
+As you can see the skill is simple to use yet a bit complex to build. The burden is on us, the skill builder, to make the interaction simple and natural. One way to make it as natural as possible is to mimic human conversational patterns. Humans have memory so your skill should too. It would be frustrating if your best friend always had to ask your name (which may be a sign that they really aren’t your best friend at all). While you could build Cake Time in a day, because of its complexity you’ll build Cake Time over four modules in this course.
 
-Once you’ve completed this course; you’ll have built a skill that is useful, simple, and sticky. Useful skills provide value to users. For this skill Cake Walk is fun and useful to users by celebrating their birthday with a count down. Cake Walk is also a great example of a sticky skill, which retains the user’s interest and inspires them to keep coming back. Cake Walk encourages our user to keep checking in until their special day.  Let’s get started!
+Once you’ve completed this course; you’ll have built a skill that is useful, simple, and sticky. Useful skills provide value to users. For this skill Cake Time is fun and useful to users by celebrating their birthday with a count down. Cake Time is also a great example of a sticky skill, which retains the user’s interest and inspires them to keep coming back. Cake Time encourages our user to keep checking in until their special day.  Let’s get started!
 
 ### About this module
 If this is your first time building an Alexa skill, we recommend completing this module and the next three, which walk you through all the necessary steps.
@@ -32,41 +32,42 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 
 **a.** Click **Create Skill** on the right-hand side of the console. A new page displays.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-2a.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1b.png)
 
 
-**b.** In the **Skill name** field, enter **Cake Walk**.
+**b.** In the **Skill name** field, enter **Cake Time**.
 
 **c.** Leave the **Default language** set to **English (US)**.
 
 **d.** You are building a custom skill. Under **Choose a model to add to your skill**, select **Custom**.
 
-![](http://alexa-github.s3.amazonaws.com/skill-name-custom.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1d.png)
 
 > **Skills have a front end and backend. The front end is where you map utterances (what the user says) into an intent (the desired action). You must decide how to handle the user’s intent in the backend. Host the skill yourself using an    function or HTTPS endpoint, or choose Alexa to host the skill for you. There are limits to the AWS Free Tier, so if your skill goes viral, you may want to move to the self-hosted option. For this course, choose Alexa-Hosted (Python).**
 
 **e.** Under **Choose a method to host your skill’s backend resources**, select **Alexa-Hosted (Python)**.
 
-![](http://alexa-github.s3.amazonaws.com/alexa-hosted-python.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1e.png)
 
 **f.** At the top of the page, click **Create skill**.
 
-![](http://alexa-github.s3.amazonaws.com/create-skill-button.png)
+
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1f.png)
 
 > **It takes a few moments for AWS to provision resources for your skill. When this process completes, move to the next section.**
 
->![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-2f-2.png)
+>![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/3/building-a-skill-2f-2.png)
 
 > **Note: When you exit and return to the Alexa developer console, find your skill on the Skills tab, in the Alexa Skills list. Click Edit to continue working on your skill.**
 
-> ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-2f-3.png)
+> ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/building-a-skill-2f-3.png)
 
 ## Step 3: Greet the user
 The first thing a user will want to do with the skill is open it. The intent of opening the skill is built into the experience, so you don’t need to define this intent in your front end.
 
 However, you need to respond to the intent in your backend. In this step, you will update your backend code to greet the user when they open the skill.
 
-**a.** Open the Cake Walk skill in the Alexa developer console. Click the Code tab. The code editor opens the lambda_function.py file.
+**a.** Open the Cake Time skill in the Alexa developer console. Click the Code tab. The code editor opens the lambda_function.py file.
 
 ![](http://alexa-github.s3.amazonaws.com/python-code-tab.png)
 
@@ -81,7 +82,7 @@ In this case, the user wants to launch the skill, which is a **LaunchRequest**. 
 
 > **Tip:** In the code editor, search for text by pressing **CTRL+F** (**Command+F** on a Mac). A search window opens. This is helpful for searching for pieces of code within the editor.
 >
-What should happen when a user launches the Cake Walk skill? In this case, you want the skill to simply confirm that the user opened it by saying, "Hello! Welcome to Cake Walk. That was a piece of cake! Bye!"
+What should happen when a user launches the Cake Time skill? In this case, you want the skill to simply confirm that the user opened it by saying, "Hello! Welcome to Cake Time. That was a piece of cake! Bye!"
 Within the **LaunchRequestHandler** object, find the **handle()** function. This function uses the **responseBuilder** function to compose and return the response to the user.
 
 Within the **handle()** function, find the line that begins **speak_output =**. This variable contains the string of words the skill should say back to the user when they launch the skill. Let’s change what it says to make sense for this skill.
@@ -89,7 +90,7 @@ Within the **handle()** function, find the line that begins **speak_output =**. 
 **b.** Within the **LaunchRequestHandler** object, find the **handle()** function, and the line that begins **speak_output =**. Replace that line with the following:
 
 ```python
-speak_output = "Hello! Welcome to cake walk. That was a piece of cake! Bye!"
+speak_output = "Hello! Welcome to Cake Time. That was a piece of cake! Bye!"
 ```
 
 > **If you are not familiar with programming, a string is encapsulated in single or double quotation marks. To change a string’s text, replace the text within the quotation marks.**
@@ -121,7 +122,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello! Welcome to cake walk. That was a piece of cake! Bye!"
+        speak_output = "Hello! Welcome to Cake Time. That was a piece of cake! Bye!"
 
         return (
             handler_input.response_builder
@@ -134,38 +135,38 @@ You have built the code that will handle a LaunchRequest for this skill. Before 
 
 **e.** Click **Save**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-3-save.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/3/building-a-skill-3-save.png)
 
 **f.** Click **Deploy**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-3-deploy.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/3/building-a-skill-3-deploy.png)
 
 ## Step 4: Test your skill
 Now it is time to test the skill. Start by activating the test simulator.
 
 **a.** Click the **Test** tab. The test simulator opens.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-4-1.jpg)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/building-a-skill-4-1.jpg)
 
 An alert may appear requesting to use your computer’s microphone. Click **Allow** to enable testing the skill with your voice, just like if you were talking to an Alexa-enabled device.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-4-2.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/3/building-a-skill-4-2.png)
 
 **b.** From the drop-down menu at the top left of the page, select **Development**.
 
-![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/courses/cake-walk/3/building-a-skill-4-3.png)
+![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/building-a-skill-4-3.png)
 
 # Testing inside the developer console
 There are two ways to test your skill in the console. With the first method, type what the user would say into the box at the top left. Be precise—spelling matters! Alternately, speak to the skill by clicking and holding the microphone icon and speaking.
 
-So far, the skill has one intent: **LaunchRequest**. This function responds to the user when they ask Alexa to open or launch the skill. The user will say, “Alexa, open Cake Walk.” Cake Walk is the name of your skill and was automatically set as the invocation name for the skill. You can change the invocation name, but let’s leave it as is for this exercise.
+So far, the skill has one intent: **LaunchRequest**. This function responds to the user when they ask Alexa to open or launch the skill. The user will say, “Alexa, open Cake Time.” Cake Time is the name of your skill and was automatically set as the invocation name for the skill. You can change the invocation name, but let’s leave it as is for this exercise.
 
-**c.** Test the skill. Type **open Cake Walk** (not case sensitive) into the box at the top left and press **ENTER**, or click and hold the microphone icon and say, “**Open Cake Walk**.”
+**c.** Test the skill. Type **open Cake Time** (not case sensitive) into the box at the top left and press **ENTER**, or click and hold the microphone icon and say, “**Open Cake Time**.”
 
-> **When testing your skill in the Alexa developer console, you don’t need to provide the wake word (usually “Alexa”). Typing or saying, “Open Cake Walk” is fine. When testing on an Alexa-enabled device, you need the wake word: “Alexa, open Cake Walk.”**
+> **When testing your skill in the Alexa developer console, you don’t need to provide the wake word (usually “Alexa”). Typing or saying, “Open Cake Time” is fine. When testing on an Alexa-enabled device, you need the wake word: “Alexa, open Cake Time.”**
 
 ## Wrap-up
-When you open the skill, does it say, "Hello! Welcome to Cake Walk. That was a piece of cake! Bye!"? If so, congratulations! You have laid the groundwork for the skill. You will be building new skills with compelling conversational voice experiences in no time.
+When you open the skill, does it say, "Hello! Welcome to Cake Time. That was a piece of cake! Bye!"? If so, congratulations! You have laid the groundwork for the skill. You will be building new skills with compelling conversational voice experiences in no time.
 
 There is still a lot to learn! In the next section, you will expand the skill to make it more useful.
 

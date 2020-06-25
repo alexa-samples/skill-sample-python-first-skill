@@ -4,11 +4,11 @@ This workshop is designed to teach you how to learn the core fundamentals of bui
 
 # Step-by-step Instructions
 
-You can get started here: [Cake Walk: Build an Engaging Alexa Skill](https://developer.amazon.com/alexa-skills-kit/courses/cake-walk)
+You can get started here: [Tutorial: Build an Engaging Alexa Skill](https://developer.amazon.com/alexa/alexa-skills-kit/get-deeper/tutorials-code-samples/build-an-engaging-alexa-skill)
 
 # The Skill
 
-Cake walk is a skill that celebrates your birthday! Tell it your birthday to have it count down the days. Interact with the skill on your special day to hear a happy birthday message.
+Cake Time is a skill that celebrates your birthday! Tell it your birthday to have it count down the days. Interact with the skill on your special day to hear a happy birthday message.
 
 # What You'll Learn
 
@@ -29,7 +29,7 @@ Cake walk is a skill that celebrates your birthday! Tell it your birthday to hav
 
 ## Community Resources
 
-* [Cake Walk Course](http://alexa.design/cake-walk)
+* [Tutorial: Build an Engaging Alexa Skill](https://developer.amazon.com/alexa/alexa-skills-kit/get-deeper/tutorials-code-samples/build-an-engaging-alexa-skill)
 * [Amazon Developer Forums](https://forums.developer.amazon.com/spaces/165/index.html)
 * [Alexa Skills - User Voice](https://alexa.uservoice.com/forums/906892-alexa-skills-developer-voice-and-vote)
 
