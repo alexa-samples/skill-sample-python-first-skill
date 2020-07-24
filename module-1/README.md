@@ -76,6 +76,7 @@ _To define how your skill responds to a JSON request, you will define a handler 
 There are two pieces to a handler:
 * **can_handle()** function
 * **handle()** function
+
 The **can_handle()** function is where you define what requests the handler responds to. The **handle()** function returns a response to the user.
 If your skill receives a request, the **can_handle()** function within each handler determines whether or not that handler can service the request.
 In this case, the user wants to launch the skill, which is a **LaunchRequest**. Therefore, the **can_handle()** function within the **LaunchRequestHandler** will let the SDK know it can fulfill the request. In computer terms, the **can_handle** returns _true_ to confirm it can do the work.
