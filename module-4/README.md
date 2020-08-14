@@ -63,14 +63,14 @@ Your **HasBirthdayLaunchRequestHandler** should now look like:
 
 ```py
 class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
-    “””Handler for launch after they have set their birthday”””
+    """Handler for launch after they have set their birthday"""
 
     def can_handle(self, handler_input):
         # extract persistent attributes and check if they are all present
         attr = handler_input.attributes_manager.persistent_attributes
-        attributes_are_present = (“year” in attr and “month” in attr and “day” in attr)
+        attributes_are_present = ("year" in attr and "month" in attr and "day" in attr)
 
-        return attributes_are_present and ask_utils.is_request_type(“LaunchRequest”)(handler_input)
+        return attributes_are_present and ask_utils.is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
         attr = handler_input.attributes_manager.persistent_attributes
@@ -89,7 +89,7 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         # TODO:: Use the settings API to get current date and then compute how many days until user’s bday
         # TODO:: Say happy birthday on the user’s birthday
 
-        speak_output = “Welcome back it looks like there are X more days until your y-th birthday.”
+        speak_output = "Welcome back it looks like there are X more days until your y-th birthday."
         handler_input.response_builder.speak(speak_output)
 
         return handler_input.response_builder.response
@@ -124,14 +124,14 @@ Your **HasBirthdayLaunchRequestHandler** should now look like:
 
 ```py
 class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
-    “””Handler for launch after they have set their birthday”””
+    """Handler for launch after they have set their birthday"""
 
     def can_handle(self, handler_input):
         # extract persistent attributes and check if they are all present
         attr = handler_input.attributes_manager.persistent_attributes
-        attributes_are_present = (“year” in attr and “month” in attr and “day” in attr)
+        attributes_are_present = ("year" in attr and "month" in attr and "day" in attr)
 
-        return attributes_are_present and ask_utils.is_request_type(“LaunchRequest”)(handler_input)
+        return attributes_are_present and ask_utils.is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
         attr = handler_input.attributes_manager.persistent_attributes
@@ -151,14 +151,14 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         url = '{api_endpoint}/v2/devices/{device_id}/settings/System.timeZone'.format(api_endpoint=api_endpoint, device_id=device_id)
         headers = {'Authorization': 'Bearer ' + api_access_token}
 
-        userTimeZone = “”
+        userTimeZone = ""
         try:
             r = requests.get(url, headers=headers)
             res = r.json()
-            logger.info(“Device API result: {}”.format(str(res)))
+            logger.info("Device API result: {}".format(str(res)))
             userTimeZone = res
         except Exception:
-            handler_input.response_builder.speak(“There was a problem connecting to the service”)
+            handler_input.response_builder.speak("There was a problem connecting to the service")
             return handler_input.response_builder.response
 
         # TODO:: Use the settings API to get current date and then compute how many days until user's bday
@@ -199,7 +199,7 @@ import calendar
 from datetime import datetime
 from pytz import timezone
 from ask_sdk_s3.adapter import S3Adapter
-s3_adapter = S3Adapter(bucket_name=os.environ[“S3_PERSISTENCE_BUCKET”])
+s3_adapter = S3Adapter(bucket_name=os.environ["S3_PERSISTENCE_BUCKET"])
 
 from ask_sdk_core.skill_builder import CustomSkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
@@ -238,14 +238,14 @@ Your **HasBirthdayLaunchRequestHandler** should now look like:
 
 ```py
 class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
-    “””Handler for launch after they have set their birthday”””
+    """Handler for launch after they have set their birthday"""
 
     def can_handle(self, handler_input):
         # extract persistent attributes and check if they are all present
         attr = handler_input.attributes_manager.persistent_attributes
-        attributes_are_present = (“year” in attr and “month” in attr and “day” in attr)
+        attributes_are_present = ("year" in attr and "month" in attr and "day" in attr)
 
-        return attributes_are_present and ask_utils.is_request_type(“LaunchRequest”)(handler_input)
+        return attributes_are_present and ask_utils.is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
         attr = handler_input.attributes_manager.persistent_attributes
@@ -265,14 +265,14 @@ class HasBirthdayLaunchRequestHandler(AbstractRequestHandler):
         url = '{api_endpoint}/v2/devices/{device_id}/settings/System.timeZone'.format(api_endpoint=api_endpoint, device_id=device_id)
         headers = {'Authorization': 'Bearer ' + api_access_token}
 
-        userTimeZone = “”
+        userTimeZone = ""
         try:
             r = requests.get(url, headers=headers)
             res = r.json()
-            logger.info(“Device API result: {}”.format(str(res)))
+            logger.info("Device API result: {}".format(str(res)))
             userTimeZone = res
         except Exception:
-            handler_input.response_builder.speak(“There was a problem connecting to the service”)
+            handler_input.response_builder.speak("There was a problem connecting to the service")
             return handler_input.response_builder.response
 
         # getting the current date with the time
@@ -353,12 +353,12 @@ If it is the user’s birthday, you want the skill to wish them happy birthday. 
         # setting the default speak_output to Happy xth Birthday!!
         # Alexa will automatically correct the ordinal for you.
         # no need to worry about when to use st, th, rd
-        speak_output = “Happy {}th birthday!”.format(str(current_year - year))
+        speak_output = "Happy {}th birthday!".format(str(current_year - year))
         if now_date != next_birthday:
             diff_days = abs((now_date - next_birthday).days)
-            speak_output = “Welcome back. It looks like there are \
+            speak_output = "Welcome back. It looks like there are \
                             {days} days until your {birthday_num}th\
-                            birthday”.format(
+                            birthday".format(
                                 days=diff_days,
                                 birthday_num=(current_year-year)
                             )
