@@ -63,7 +63,7 @@ The user may not have responded for a variety of reasons. The skill should pose 
 
 **e.** Copy and paste the following code on the new line:
 ```py
-reprompt_text = "I was born Nov. 6th, 2014. When are you born?"
+reprompt_text = "I was born Nov. 6th, 2014. When were you born?"
 ```
 
 Notice the reprompt gives an example of what Alexa expects the user to say by having the skill provide Alexa's birthday in the format it is looking for. Providing examples like this is a best practice.
@@ -87,7 +87,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         speak_output = "Hello! This is Cake Time. What is your birthday?"
-        reprompt_text = "I was born Nov. 6th, 2015. When are you born?"
+        reprompt_text = "I was born Nov. 6th, 2015. When were you born?"
 
         return (
             handler_input.response_builder
