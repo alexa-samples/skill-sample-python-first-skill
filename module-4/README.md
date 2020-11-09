@@ -1,6 +1,6 @@
 ## Using the Alexa Settings API
 In this section, you will enable the Cake Time skill to calculate the number of days until the user’s next birthday.
-Use the  [Alexa developer console](https://developer.amazon.com/alexa/console/ask)  for this module. Log in to the console and open the Cake Time skill.
+Please note that as per the [documentation](https://developer.amazon.com/en-US/docs/alexa/devconsole/test-your-skill.html#alexa-simulator-limitations), the Alexa Simulator in the developer console does not support Alexa Settings API. You will need to test using an Alexa enabled device (such as an Echo or the Alexa app in your phone) in order for this next module to work.
 
 To calculate the number of days until the user’s next birthday accurately, we need additional information, like current date, and user’s time zone. Luckily, you can use the Alexa Settings API to get this information. To do that, we need to pass the following information to the Alexa Settings API:
 
