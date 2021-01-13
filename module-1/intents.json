@@ -1,0 +1,236 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "lululemon events",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "CaptureClassesIntent",
+                    "slots": [
+                        {
+                            "name": "category",
+                            "type": "AMAZON.EventType",
+                            "samples": [
+                                "{category}",
+                                "I'd like to do {category} classes"
+                            ]
+                        },
+                        {
+                            "name": "city",
+                            "type": "AMAZON.City",
+                            "samples": [
+                                "In {city}",
+                                "{city}"
+                            ]
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "samples": [
+                                "{time}"
+                            ]
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE"
+                        }
+                    ],
+                    "samples": [
+                        "I'd like to do {category} classes in {city}",
+                        "I'd like to do {category} classes",
+                        "I would like to do {category} classes in {city}",
+                        "I would like to do {category} classes",
+                        "I'd like to do {category} in {city}",
+                        "I'd like to do {category}",
+                        "Find me {category} classes in {city} for {date} at {time}",
+                        "Find me {category} classes in {city} for {time}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "AMAZON.EventType",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Circuit Training"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Interval Training"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Dance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bootcamp"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Pilates"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Barre"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Meditation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Run"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Boxing"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Yoga"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Cycle"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "HIIT"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "CaptureClassesIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "category",
+                            "type": "AMAZON.EventType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.423657467839.1463420939603"
+                            }
+                        },
+                        {
+                            "name": "city",
+                            "type": "AMAZON.City",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.423657467839.560396281231"
+                            }
+                        },
+                        {
+                            "name": "time",
+                            "type": "AMAZON.TIME",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.423657467839.1214143917982"
+                            }
+                        },
+                        {
+                            "name": "date",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.235704842837.814547384053",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What month were you born?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.235704842837.1515393086786",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What day were you born?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.235704842837.669805197896",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What year were your born?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.423657467839.560396281231",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What city would you like to do your workout?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.423657467839.1214143917982",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What time would you like to workout?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.423657467839.1463420939603",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "What type of class would you like to do?"
+                    }
+                ]
+            }
+        ]
+    }
+}
