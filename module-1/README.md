@@ -160,7 +160,9 @@ An alert may appear requesting to use your computer’s microphone. Click **Allo
 # Testing inside the developer console
 There are two ways to test your skill in the console. With the first method, type what the user would say into the box at the top left. Be precise—spelling matters! Alternately, speak to the skill by clicking and holding the microphone icon and speaking.
 
-So far, the skill has one intent: **LaunchRequest**. This function responds to the user when they ask Alexa to open or launch the skill. The user will say, “Alexa, open Cake Time.” Cake Time is the name of your skill and was automatically set as the invocation name for the skill. You can change the invocation name, but let’s leave it as is for this exercise.
+So far, the skill has one intent: **LaunchRequest**. This function responds to the user when they ask Alexa to open or launch the skill. The user will say, “Alexa, open Cake Time.” Cake Time is the name of your skill and was automatically set as the invocation name for the skill. You can change the invocation name, but let’s leave it as is for this exercise. 
+
+**Verify that the invocation for this skill is "cake time"**. You can check this by going to the "Build" tab and finding the "Invocation" button. If this is not "cake time", you will need to change the name to "cake time" if you want to be able to call **open Cake Time** in the testing section.
 
 **c.** Test the skill. Type **open Cake Time** (not case sensitive) into the box at the top left and press **ENTER**, or click and hold the microphone icon and say, “**Open Cake Time**.”
 
