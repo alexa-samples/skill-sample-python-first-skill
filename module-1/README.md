@@ -49,7 +49,9 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1e.png)
 
-**f.** At the top of the page, click **Create skill**.
+**f.** Under **Choose a template to add to your skill**, select **Hello World Skill** template.
+
+**g.** At the top of the page, click **Create skill**.
 
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1f.png)
