@@ -49,7 +49,10 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1e.png)
 
-**f.** At the top of the page, click **Create skill**.
+
+**f.** Select **Start from Scratch** from Templates.
+
+**g.** At the top of the page, click **Create skill**.
 
 
 ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/1f.png)
@@ -57,9 +60,7 @@ To get started, log into the  [Alexa developer console](https://developer.amazon
 > **It takes a few moments for AWS to provision resources for your skill. When this process completes, move to the next section.**
 
 >![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time/3/building-a-skill-2f-2.png)
-
 > **Note: When you exit and return to the Alexa developer console, find your skill on the Skills tab, in the Alexa Skills list. Click Edit to continue working on your skill.**
-
 > ![](https://d3ogm7ac91k97u.cloudfront.net/content/dam/alexa/alexa-skills-kit/get-deeper/tutorials/cake-time-2/building-a-skill-2f-3.png)
 
 ## Step 3: Greet the user
